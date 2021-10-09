@@ -124,6 +124,15 @@ add_filter( 'wpseo_metabox_prio', 'yoasttobottom');
   But always use this to get the custom formats
 
 */
+
+
+// Callback function to insert 'styleselect' into the $buttons array
+function add_styleselect_button( $buttons ) {
+    array_unshift( $buttons, 'styleselect' );
+    return $buttons;
+}
+// Register our callback to the appropriate filter
+add_filter( 'mce_buttons', 'add_styleselect_button' );
  
 function my_mce_before_init_insert_formats( $init_array ) {  
  
@@ -131,36 +140,44 @@ function my_mce_before_init_insert_formats( $init_array ) {
  
   $style_formats = array(  
     // Each array child is a format with it's own settings
-    
-    // A block element
-    array(  
-      'title' => 'Block Color',  
-      'block' => 'span',  
-      'classes' => 'custom-color-block',
-      'wrapper' => true,
-      
-    ),
-    // inline color
-    array(  
-      'title' => 'Custom Color',  
-      'inline' => 'span',  
-      'classes' => 'custom-color',
-      'wrapper' => true,
-      
-    ),
-     array(
-        'title' => 'Header 2',
+    // array(
+    //     'title' => 'Heading 1',
+    //     'format' => 'h2',
+    //     //'icon' => 'bold'
+    // ),
+    array(
+        'title' => 'Heading 2',
         'format' => 'h2',
         //'icon' => 'bold'
     ),
     array(
-        'title' => 'Header 3',
+        'title' => 'Heading 3',
         'format' => 'h3'
+    ),
+    array(
+        'title' => 'Heading 4',
+        'format' => 'h4'
     ),
     array(
         'title' => 'Paragraph',
         'format' => 'p'
-    )
+    ),
+    array(
+        'title' => 'Preformatted',
+        'format' => 'pre'
+    ),
+    array(  
+      'title' => 'Blockquote',  
+      'block' => 'Blockquote',  
+      'classes' => 'quote',
+      'wrapper' => true,
+    ),
+    array(  
+      'title' => 'Author',  
+      'inline' => 'strong',  
+      'classes' => 'quote-author',
+      'wrapper' => true,
+    ),
   );  
   // Insert the array, JSON ENCODED, into 'style_formats'
   $init_array['style_formats'] = json_encode( $style_formats );  
@@ -170,6 +187,9 @@ function my_mce_before_init_insert_formats( $init_array ) {
 } 
 // Attach callback to 'tiny_mce_before_init' 
 add_filter( 'tiny_mce_before_init', 'my_mce_before_init_insert_formats' ); 
+
+
+
 // Add styles to WYSIWYG in your theme's editor-style.css file
 function my_theme_add_editor_styles() {
     add_editor_style( 'editor-style.css' );

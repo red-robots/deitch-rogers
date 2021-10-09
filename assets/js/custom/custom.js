@@ -40,7 +40,7 @@ jQuery(document).ready(function ($) {
   }); 
 
 
-  Fancybox.bind("[data-fancybox]", {
+  $('[data-fancybox]').fancybox({
     protect: true
   });
 
@@ -78,5 +78,12 @@ jQuery(document).ready(function ($) {
     // });
     
   });
+
+  var wow = new WOW();
+    wow.init();
+
+  WOW.prototype.addBox = function(element){
+      this.boxes.push(element);
+  };
 
 }); 
