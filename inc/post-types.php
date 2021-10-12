@@ -160,10 +160,17 @@ function set_custom_cpt_columns($columns) {
     $post_type = ( isset($query['post_type']) ) ? $query['post_type'] : '';
     
     if($post_type=='project') {
-        unset($columns['date']);
-        $columns['title'] = __( 'Name', 'bellaworks' );
-        $columns['project_image'] = __( 'Image', 'bellaworks' );
-        $columns['date'] = __( 'Date', 'bellaworks' );
+      unset($columns['date']);
+      $columns['title'] = __( 'Name', 'bellaworks' );
+      $columns['project_image'] = __( 'Image', 'bellaworks' );
+      $columns['date'] = __( 'Date', 'bellaworks' );
+    }
+
+    else if($post_type=='people') {
+      unset($columns['date']);
+      $columns['title'] = __( 'Name', 'bellaworks' );
+      $columns['photo'] = __( 'Photo', 'bellaworks' );
+      $columns['date'] = __( 'Date', 'bellaworks' );
     }
     
     return $columns;
@@ -187,6 +194,24 @@ function custom_post_column( $column, $post_id ) {
                    $the_photo .= '<span style="display:block;width:100%;height:100%;background:url('.$img_src.') top center no-repeat;background-size:cover;transform:scale(1.2)"></span>';
                 } else {
                     $the_photo .= '<i class="dashicons dashicons-format-image" style="font-size:25px;position:relative;top:13px;left: -3px;opacity:0.3;"></i>';
+                }
+                $the_photo .= '</span>';
+                echo $the_photo;
+                break;
+        }
+    }
+
+    else if($post_type=='people') {
+        switch ( $column ) {
+
+            case 'photo' :
+                $img = get_field('photo',$post_id);
+                $img_src = ($img) ? $img['sizes']['medium'] : '';
+                $the_photo = '<span class="tmphoto" style="display:inline-block;width:50px;height:50px;background:#e2e1e1;text-align:center;border:1px solid #CCC;overflow:hidden;">';
+                if($img_src) {
+                   $the_photo .= '<span style="display:block;width:100%;height:100%;background:url('.$img_src.') top center no-repeat;background-size:cover;transform:scale(1.2)"></span>';
+                } else {
+                    $the_photo .= '<i class="dashicons dashicons-admin-users" style="font-size:25px;position:relative;top:13px;left: -3px;opacity:0.3;"></i>';
                 }
                 $the_photo .= '</span>';
                 echo $the_photo;

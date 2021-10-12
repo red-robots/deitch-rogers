@@ -167,6 +167,11 @@ function my_mce_before_init_insert_formats( $init_array ) {
         'format' => 'pre'
     ),
     array(  
+      'title' => 'Small Text', 
+      'inline' => 'small',  
+      'classes' => 'smtxt'
+    ),
+    array(  
       'title' => 'Blockquote',  
       'block' => 'Blockquote',  
       'classes' => 'quote',
