@@ -152,9 +152,9 @@ function get_social_media() {
 
 function social_icons() {
     $social_types = array(
-        'facebook'  => 'fab fa-facebook-square',
+        'facebook'  => 'fa fa-facebook',
         'twitter'   => 'fab fa-twitter',
-        'linkedin'  => 'fab fa-linkedin-square',
+        'linkedin'  => 'fa fa-linkedin',
         'instagram' => 'fab fa-instagram',
         'youtube'   => 'fab fa-youtube',
         'vimeo'     => 'fab fa-vimeo',

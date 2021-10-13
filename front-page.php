@@ -408,7 +408,7 @@ $hero_class = ( ($large_text || $small_text) && $grid_images ) ? 'half':'full';
       <?php } ?>
 
       <?php if ( $row9_title || $row9_quote ) { ?>
-      <div class="itb-col text wow fadeInLeft">
+      <div class="itb-col text wow fadeInRight">
         <div class="inner">
           <?php if ($row9_title) { ?>
            <h3 class="title h1"><?php echo $row9_title ?></h3> 
@@ -519,7 +519,6 @@ if ( $team->have_posts() ) {
   $row11_btnTitle = (isset($row11_button['title']) && ($row11_button['title'])) ? ($row11_button['title']) : '';
   $row11_btnLink = (isset($row11_button['url']) && ($row11_button['url'])) ? ($row11_button['url']) : '';
   $row11_btnTarget = (isset($row11_button['target']) && ($row11_button['target'])) ? ($row11_button['target']) : '_self';
-
   $row11_class = ( $row11_image && ( $row11_title || $row11_text) ) ? 'half':'full';
   if ( $row4_image || ($row11_title || $row11_text) ) { ?>
   <div id="homerow11" class="image-text-block fw wow fadeIn <?php echo $row11_class ?>">
@@ -531,7 +530,7 @@ if ( $team->have_posts() ) {
       <?php } ?>
 
       <?php if ($row11_title || $row11_text) { ?>
-      <div class="itb-col text wow fadeInLeft">
+      <div class="itb-col text wow fadeInRight">
         <div class="inner">
           <?php if ($row11_title) { ?>
            <h3 class="title h1"><?php echo $row11_title ?></h3> 
@@ -606,6 +605,21 @@ if ( $team->have_posts() ) {
           <?php } ?>
         <?php } ?>
       </div>
+    </div>
+  </div>
+  <?php } ?>
+
+
+  <?php  
+  $bottom_logos = get_field("bottom_logo");
+  if($bottom_logos) { ?>
+  <div id="home-logos" class="bottom-logos fw">
+    <div class="wrapper">
+      <?php foreach ($bottom_logos as $b) { ?>
+       <span>
+        <img src="<?php echo $b['url'] ?>" alt="<?php echo $b['title'] ?>">
+       </span> 
+      <?php } ?>
     </div>
   </div>
   <?php } ?>

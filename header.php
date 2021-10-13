@@ -48,11 +48,17 @@ $body = ($banner) ? 'has-banner':'';
   			<div id="site-logo">
   				<a href="<?php bloginfo('url'); ?>"><?php get_template_part('parts/logo') ?></a>
   			</div>
-  			<nav id="site-navigation" class="main-navigation" role="navigation">
-          <?php wp_nav_menu( array( 'theme_location' => 'primary', 'container'=>false, 'menu_id' => 'primary-menu','link_before'=>'<span>','link_after'=>'</span>',) ); ?>
-        </nav>
-        <a href="#" class="top-cta-btn btn-contact"><span>Contact</span></a>
-        <span class="mobile-menu"><span id="menutoggle"><span class="bar"></span><i>Menu</i></span></span>
+
+        <a class="mobile-menu" id="menutoggle" href="#mobile-menu"><span class="bar"></span><i>Menu</i></a>
+
+        <div class="outerNav">
+    			<nav id="site-navigation" class="main-navigation" role="navigation">
+            <?php wp_nav_menu( array( 'theme_location' => 'primary', 'container'=>false, 'menu_id' => 'primary-menu','link_before'=>'<span>','link_after'=>'</span>',) ); ?>
+          </nav>
+          <a href="#" class="top-cta-btn btn-contact"><span>Contact</span></a>
+        </div>
+        <div class="menu-overlay"></div>
+      
   		</div>
     </div>	
 	</header>

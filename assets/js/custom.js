@@ -79,4 +79,14 @@ jQuery(document).ready(function ($) {
   WOW.prototype.addBox = function (element) {
     this.boxes.push(element);
   };
+
+  if ($(window).width() < 820) {
+    $("#primary-menu > li.menu-item-has-children > a").each(function () {
+      $(this).attr("href", "#");
+      $(this).addClass('parentMenu');
+    });
+    $(document).on("click", "a.parentMenu", function (e) {
+      e.preventDefault();
+    });
+  }
 });
