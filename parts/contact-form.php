@@ -39,15 +39,5 @@ if ( $featured_image || ($form_title || $form_text) || $bottom_logos ) { ?>
 <?php } ?>
 
 <?php if ( isset($show_logo) && $show_logo ) { ?>
-  <?php if($bottom_logos) { ?>
-  <div id="bottom-logos" class="bottom-logos fw">
-    <div class="wrapper">
-      <?php foreach ($bottom_logos as $b) { ?>
-       <span>
-        <img src="<?php echo $b['url'] ?>" alt="<?php echo $b['title'] ?>">
-       </span> 
-      <?php } ?>
-    </div>
-  </div>
-  <?php } ?>
+  <?php get_template_part('parts/bottom-logos'); ?>
 <?php } ?>

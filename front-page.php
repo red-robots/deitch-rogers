@@ -619,19 +619,8 @@ if ( $team->have_posts() ) {
   <?php } ?>
 
 
-  <?php  
-  $bottom_logos = get_field("bottom_logo");
-  if($bottom_logos) { ?>
-  <div id="home-logos" class="bottom-logos fw">
-    <div class="wrapper">
-      <?php foreach ($bottom_logos as $b) { ?>
-       <span>
-        <img src="<?php echo $b['url'] ?>" alt="<?php echo $b['title'] ?>">
-       </span> 
-      <?php } ?>
-    </div>
-  </div>
-  <?php } ?>
+  <?php get_template_part('parts/bottom-logos'); ?>
+
 
 <?php
 get_footer();
