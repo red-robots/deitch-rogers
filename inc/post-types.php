@@ -9,7 +9,7 @@ add_action('init', 'js_custom_init', 1);
 function js_custom_init() {
     $post_types = array(
       array(
-        'post_type' => 'people',
+        'post_type' => 'team',
         'menu_name' => 'People',
         'plural'    => 'People',
         'single'    => 'People',
@@ -97,16 +97,16 @@ function js_custom_init() {
 */
 add_action( 'init', 'build_taxonomies', 0 ); 
 function build_taxonomies() {
-
-  $post_types = array(
-    array(
-      'post_type' => array('team','careers'),
-      'menu_name' => 'Divisions Taxonomy',
-      'plural'    => 'Divisions',
-      'single'    => 'Division',
-      'taxonomy'  => 'divisions'
-    ),
-  );
+  $post_types  = array();
+  // $post_types = array(
+  //   array(
+  //     'post_type' => array('team','careers'),
+  //     'menu_name' => 'Divisions Taxonomy',
+  //     'plural'    => 'Divisions',
+  //     'single'    => 'Division',
+  //     'taxonomy'  => 'divisions'
+  //   ),
+  // );
 
 
   if($post_types) {
@@ -166,7 +166,7 @@ function set_custom_cpt_columns($columns) {
       $columns['date'] = __( 'Date', 'bellaworks' );
     }
 
-    else if($post_type=='people') {
+    else if($post_type=='team') {
       unset($columns['date']);
       $columns['title'] = __( 'Name', 'bellaworks' );
       $columns['photo'] = __( 'Photo', 'bellaworks' );
@@ -201,7 +201,7 @@ function custom_post_column( $column, $post_id ) {
         }
     }
 
-    else if($post_type=='people') {
+    else if($post_type=='team') {
         switch ( $column ) {
 
             case 'photo' :

@@ -211,10 +211,47 @@ function parse_external_url( $url = '', $internal_class = 'internal-link', $exte
     return $output;
 }
 
+
+/* ACF CUSTOM OPTIONS TABS */
+// if( function_exists('acf_add_options_page') ) {
+//     acf_add_options_page();
+// }
+/* Options page under custom post type */
+// if( function_exists('acf_add_options_page') ) {
+//     acf_add_options_sub_page(array(
+//         'page_title'    => 'People Options',
+//         'menu_title'    => 'People Options',
+//         'parent_slug'   => 'edit.php?post_type=people'
+//     ));
+// }
+// function be_acf_options_page() {
+//     if ( ! function_exists( 'acf_add_options_page' ) ) return;
+    
+//     $acf_option_tabs = array(
+//         array( 
+//             'title'      => 'Today Options',
+//             'capability' => 'manage_options',
+//         ),
+//         array( 
+//             'title'      => 'Menu Options',
+//             'capability' => 'manage_options',
+//         ),
+//         array( 
+//             'title'      => 'Global Options',
+//             'capability' => 'manage_options',
+//         )
+//     );
+
+//     foreach($acf_option_tabs as $options) {
+//         acf_add_options_page($options);
+//     }
+// }
+// add_action( 'acf/init', 'be_acf_options_page' );
+
+
 function get_images_dir($fileName=null) {
     return get_bloginfo('template_url') . '/images/' . $fileName;
 }
-
 
 
 add_action( 'admin_head', 'admin_head_scripts' );
@@ -225,4 +262,24 @@ function admin_head_scripts() { ?>
   <link rel="stylesheet" href="<?php echo get_bloginfo('template_url') ?>/css/admin.css">
 <?php
 }
+
+
+/* Update Peope post type */
+if( (isset($_GET['post_type']) && $_GET['post_type']=='team') && (isset($_GET['do']) && $_GET['do']=='update') ) {
+  $args = array(
+    'posts_per_page'   => -1,
+    'post_type'        => 'people',
+    'post_status'      => 'publish'
+  );
+  $team = get_posts($args);
+  if($team) {
+    foreach($team as $p) {
+      $pid = $p->ID;
+      $p->post_type="team";
+      wp_update_post($p);
+    }
+  }
+}
+
+
 

@@ -229,7 +229,9 @@ input.gform_button, input[type="submit"] {
     border-radius: 200px;
     color: #FFF;
     position: absolute;
-    right: 0;
+    @include tab {
+      right: 0;
+    }
     &:hover {
       // background: tint($green,20%);
       // transform: translateY(-5px);
@@ -242,8 +244,11 @@ input.gform_button, input[type="submit"] {
 #site-logo {
   width: 150px;
   float: left;
+  position: relative;
+  top: 4px;
   @include tab {
     width: 220px;
+    top: 0;
   }
   a,svg {
     display: block;
@@ -337,6 +342,11 @@ input.gform_button, input[type="submit"] {
       background: #FFF;
     } 
   }
+  #primary-menu > li.current_page_item > a,
+  #primary-menu > li.current_page_item:hover > a {
+    background-color: transparent;
+    opacity: 0.35;
+  }
   #primary-menu > li > ul {
     position: absolute;
     left: 0;
@@ -368,6 +378,8 @@ input.gform_button, input[type="submit"] {
     visibility: visible;
     transform: translateY(0);
   }
+
+  #primary-menu > li > ul li.current_page_item > a,
   #primary-menu > li > ul li:hover > a {
     color: $primary;
   }
@@ -378,9 +390,10 @@ input.gform_button, input[type="submit"] {
   width: 40px;
   height: 40px;
   position: absolute;
-  top: -3px;
-  right: 0;
+  top: 0;
+  right: 5px;
   z-index: 105;
+  transition: none!important;
   @include tab {
     display: none;
   }
@@ -417,33 +430,107 @@ input.gform_button, input[type="submit"] {
     top: 10px;
   }
 }
+.menu-overlay {display: none;}
 
+/* Mobile */
 @include max($tabwidth - 1px) {
   .outerNav {
-    max-width: 350px;
+    max-width: 320px;
     width: 100%;
     height: 100%;
     position: fixed;
     top: 0;
-    right: -100%;
+    right: -400px;
     z-index: -999;
     background: #FFF; 
     transition: all ease .3s;
+    &.active {
+      right: 0;
+      z-index: 100;
+    }
   }
-  #site-navigation {
-    margin-top: 115px;
-    #primary-menu > li {
-      width: 100%;
+
+  .site-header {
+    .top-cta-btn {
+      top: 25px;
+      left: 25px;
     }
-    #primary-menu > li > a {
+    #site-navigation {
+      margin-top: 115px;
+      #primary-menu > li {
+        width: 100%;
+        border-bottom: 1px dotted #d4d4d4;
+      }
+      #primary-menu > li > a {
+        display: block;
+        font-size: 1em;
+      }
+      #primary-menu > li > ul {
+        display: none;
+        height: auto;
+        max-height: 600px;
+        opacity: 1;
+        padding: 5px 15px 20px 35px !important;
+        visibility: visible;
+        width: 100%;
+        position: relative;
+        z-index: 10;
+        transition: none!important;
+        transform: none!important;
+        a {
+          font-size: 0.9em;
+          padding: 6px 0;
+        }
+      }
+    }  
+    .menu-overlay {
+      display: none;
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 90;
+      background: rgba(0,0,0,.75);
+      @include animateThis(1s);
+    }
+
+  }
+
+
+  body.mobile-menu-open {
+    .site-header .menu-overlay {
       display: block;
+      @include animateEffect('fadeIn');
     }
-    #primary-menu > li > ul {
-      width: 100%;
-      position: relative;
-      z-index: 10;
+    .mobile-menu {
+      position: fixed;
+      top: 23px;
+      right: 25px;
+      span.bar {
+        background-color: transparent;
+      }
+      span.bar:before {
+        transform: translateY(10px) rotate(45deg);
+      }
+      span.bar:after {
+        transform: translateY(-10px) rotate(-45deg);
+      }
     }
-  }  
+  }
+
+  body.logged-in.admin-bar {
+    &.mobile-menu-open {
+      .mobile-menu {
+        top: 65px;
+      }
+    }
+    .site-header {
+      .top-cta-btn  {
+        top: 65px;
+      }
+    }
+  }
 }
 
 .home-hero {

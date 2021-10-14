@@ -28,6 +28,7 @@ $featImg = wp_get_attachment_image_src($thumbId,'full'); ?>
 <!-- end of SOCIAL MEDIA META TAGS -->
 <?php } ?>
 <script>
+var siteURL = '<?php echo get_site_url();?>';
 var currentURL = '<?php echo get_permalink();?>';
 var params={};location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(s,k,v){params[k]=v});
 </script>
@@ -36,6 +37,12 @@ var params={};location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi,function(s,k,v){
 <?php 
 $banner = get_field("banner"); 
 $body = ($banner) ? 'has-banner':'';
+
+$hb = get_field("header_cta_button","option");
+$btnTarget = ( isset($hb['target']) && $hb['target'] ) ? $hb['target'] : '';
+$btnName = ( isset($hb['title']) && $hb['title'] ) ? $hb['title'] : '';
+$btnLink = ( isset($hb['url']) && $hb['url'] ) ? $hb['url'] : '';
+
 ?>
 <body <?php body_class($body);?>>
 <div id="page" class="site cf">
@@ -51,11 +58,13 @@ $body = ($banner) ? 'has-banner':'';
 
         <a class="mobile-menu" id="menutoggle" href="#mobile-menu"><span class="bar"></span><i>Menu</i></a>
 
-        <div class="outerNav">
+        <div id="siteNav" class="outerNav">
     			<nav id="site-navigation" class="main-navigation" role="navigation">
             <?php wp_nav_menu( array( 'theme_location' => 'primary', 'container'=>false, 'menu_id' => 'primary-menu','link_before'=>'<span>','link_after'=>'</span>',) ); ?>
           </nav>
-          <a href="#" class="top-cta-btn btn-contact"><span>Contact</span></a>
+          <?php if ($btnName && $btnLink) { ?>
+          <a href="<?php echo $btnLink ?>" target="<?php echo $btnTarget ?>" class="top-cta-btn btn-contact"><span><?php echo $btnName ?></span></a>
+          <?php } ?>
         </div>
         <div class="menu-overlay"></div>
       
