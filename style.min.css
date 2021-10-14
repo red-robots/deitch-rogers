@@ -1575,7 +1575,7 @@ blockquote .quote-author{display:block;width:100%;color:#7ebd42;text-transform:u
 .site-header .top-cta-btn{top:25px;left:25px}
 .site-header #site-navigation{margin-top:115px}
 .site-header #site-navigation #primary-menu>li{width:100%;border-bottom:1px dotted #d4d4d4}
-.site-header #site-navigation #primary-menu>li>a{display:block;font-size:1em}
+.site-header #site-navigation #primary-menu>li>a{display:block;font-size:1em;padding:15px 20px}
 .site-header #site-navigation #primary-menu>li>ul{display:none;height:auto;max-height:600px;opacity:1;padding:5px 15px 20px 35px !important;visibility:visible;width:100%;position:relative;z-index:10;-webkit-transition:none !important;transition:none !important;-webkit-transform:none !important;transform:none !important}
 .site-header #site-navigation #primary-menu>li>ul a{font-size:.9em;padding:6px 0}
 .site-header .menu-overlay{display:none;width:100%;height:100%;position:fixed;top:0;left:0;z-index:90;background:rgba(0,0,0,0.75);-webkit-animation-duration:1s;animation-duration:1s}
