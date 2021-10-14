@@ -432,7 +432,7 @@ $hero_class = ( ($large_text || $small_text) && $grid_images ) ? 'half':'full';
 <?php
 $args = array(
   'posts_per_page'   => -1,
-  'post_type'        => 'people',
+  'post_type'        => 'team',
   'post_status'      => 'publish'
 );
 $team = new WP_Query($args);
