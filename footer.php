@@ -53,7 +53,7 @@
             <?php if (has_nav_menu('footer')||$button) { ?>
             <div class="fcol two">
               <?php if ($button) { 
-                $btnTarget = ( isset($button['target']) && $button['target'] ) ? $button['target'] : '';
+                $btnTarget = ( isset($button['target']) && $button['target'] ) ? $button['target'] : '_self';
                 $btnName = ( isset($button['title']) && $button['title'] ) ? $button['title'] : '';
                 $btnLink = ( isset($button['url']) && $button['url'] ) ? $button['url'] : '';
                 if($btnName && $btnLink) { ?>

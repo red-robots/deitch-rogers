@@ -39,10 +39,9 @@ $banner = get_field("banner");
 $body = ($banner) ? 'has-banner':'';
 
 $hb = get_field("header_cta_button","option");
-$btnTarget = ( isset($hb['target']) && $hb['target'] ) ? $hb['target'] : '';
+$btnTarget = ( isset($hb['target']) && $hb['target'] ) ? $hb['target'] : '_self';
 $btnName = ( isset($hb['title']) && $hb['title'] ) ? $hb['title'] : '';
 $btnLink = ( isset($hb['url']) && $hb['url'] ) ? $hb['url'] : '';
-
 ?>
 <body <?php body_class($body);?>>
 <div id="page" class="site cf">
@@ -74,4 +73,4 @@ $btnLink = ( isset($hb['url']) && $hb['url'] ) ? $hb['url'] : '';
 
 	<?php get_template_part('parts/hero'); ?>
 
-	<div id="content" class="site-content">
+	<div id="content" class="site-content fw">

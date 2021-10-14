@@ -17,13 +17,14 @@ function remove_wp_logo( $wp_admin_bar ) {
   Custom client login, link and title.
 ---------------------------------------*/
 function my_login_logo() { 
-  $custom_logo_id = get_theme_mod( 'custom_logo' );
-  $logoImg = wp_get_attachment_image_src($custom_logo_id,'large');
-  $logo_url = ($logoImg) ? $logoImg[0] : '';
-  if($custom_logo_id) { ?>
+  // $custom_logo_id = get_theme_mod( 'custom_logo' );
+  // $logoImg = wp_get_attachment_image_src($custom_logo_id,'large');
+  // $logo_url = ($logoImg) ? $logoImg[0] : '';
+  $logo_url = get_template_directory_uri().'/images/logo.svg';
+  if($logo_url) { ?>
   <style type="text/css">
     body.login {
-      background-color: #2B4C59;
+      background-color: #eaeaea;
     }
     body.login div#login h1 a {
       background-image: url(<?php echo $logo_url; ?>);
@@ -37,16 +38,16 @@ function my_login_logo() {
     }
     body.login #backtoblog a, 
     body.login #nav a {
-      color: #F3B932;
+      color: #157394;
       transition: all ease .3s;
     }
     body.login #backtoblog a:hover,
     body.login #nav a:hover {
-      color: #fff0cb;
+      color: #75c529;
     }
     body.login form {
       border: none;
-      border-radius: 10px;
+      border-radius: 0;
     }
     body.login #login form p.submit {
       display: block;
@@ -59,14 +60,14 @@ function my_login_logo() {
       margin-top: 15px;
     }
     body.login.wp-core-ui .button-primary {
-      background: #3594B5;
-      border-color: #3594B5;
+      background: #6aa92f;
+      border-color: #5ba01b;
       font-weight: bold;
       text-transform: uppercase;
       transition: all ease .3s;
     }
     body.login.wp-core-ui .button-primary:hover {
-      background: #38a9d0;
+      background: #75c529;
     }
   </style>
 <?php }

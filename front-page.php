@@ -478,38 +478,47 @@ if ( $team->have_posts() ) {
 
 
 <?php  
-  $row10_image = get_field("row10_image");
-  $row10_title = get_field("row10_title");
-  $row10_text = get_field("row10_text");
-  $row10_class = ( $row10_image && ( $row10_title || $row10_text) ) ? 'half':'full';
-  if ( $row10_image || ($row10_title || $row10_text) ) { ?>
-  <div id="homerow10" class="image-text-block reverse fw wow fadeIn <?php echo $row10_class ?>">
-    <div class="flexwrap">
-      <?php if ($row10_image) { ?>
-      <div class="itb-col image wow fadeIn" style="background-image:url('<?php echo $row10_image['url'] ?>')">
-        <img src="<?php echo get_images_dir('rectangle.png') ?>" alt="">
-      </div>
-      <?php } ?>
-
-      <?php if ( $row10_title || $row10_text) { ?>
-      <div class="itb-col text">
-        <div class="inner">
-          <?php if ($row10_title) { ?>
-           <h3 class="title h1"><?php echo $row10_title ?></h3> 
-          <?php } ?>
-
-          <?php if ($row10_text) { ?>
-          <div class="text">
-            <?php echo $row10_text ?>
-          </div>
-          <?php } ?>
+  $show = false;
+  if($show) {
+    $row10_image = get_field("row10_image");
+    $row10_title = get_field("row10_title");
+    $row10_text = get_field("row10_text");
+    $row10_class = ( $row10_image && ( $row10_title || $row10_text) ) ? 'half':'full';
+    if ( $row10_image || ($row10_title || $row10_text) ) { ?>
+    <div id="homerow10" class="image-text-block reverse fw wow fadeIn <?php echo $row10_class ?>">
+      <div class="flexwrap">
+        <?php if ($row10_image) { ?>
+        <div class="itb-col image wow fadeIn" style="background-image:url('<?php echo $row10_image['url'] ?>')">
+          <img src="<?php echo get_images_dir('rectangle.png') ?>" alt="">
         </div>
+        <?php } ?>
+
+        <?php if ( $row10_title || $row10_text) { ?>
+        <div class="itb-col text">
+          <div class="inner">
+            <?php if ($row10_title) { ?>
+             <h3 class="title h1"><?php echo $row10_title ?></h3> 
+            <?php } ?>
+
+            <?php if ($row10_text) { ?>
+            <div class="text">
+              <?php echo $row10_text ?>
+            </div>
+            <?php } ?>
+          </div>
+        </div>
+        <?php } ?>
       </div>
-      <?php } ?>
     </div>
-  </div>
+    <?php } ?>
   <?php } ?>
 
+  <div id="homerow10">
+    <?php 
+      $show_logo = false;
+      include( locate_template('parts/contact-form.php') ); 
+    ?>
+  </div>
 
   <?php  
   $row11_image = get_field("row11_image");
