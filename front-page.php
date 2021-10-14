@@ -14,35 +14,37 @@ $hero_class = ( ($large_text || $small_text) && $grid_images ) ? 'half':'full';
     <div class="fullwrap fw">
       <div class="hero-inner fw">
         <?php if ($large_text || $small_text) { ?>
-        <div class="hero-col left wow fadeInLeft">
+        <div class="hero-col left wow fadeIn">
           <div class="hero-content">
-            <?php if ($large_text) { ?>
-            <div class="large-text">
-              <?php echo $large_text ?>
-            </div>
-            <?php } ?>
+            <div class="inside">
+              <?php if ($large_text) { ?>
+              <div class="large-text">
+                <?php echo $large_text ?>
+              </div>
+              <?php } ?>
 
-            <?php if ($small_text) { ?>
-            <div class="small-text">
-              <?php echo $small_text ?>
-            </div>
-            <?php } ?>
+              <?php if ($small_text) { ?>
+              <div class="small-text">
+                <?php echo $small_text ?>
+              </div>
+              <?php } ?>
 
-            <?php if ($left_buttons) { ?>
-            <div class="buttons">
-              <?php foreach ($left_buttons as $b) { 
-                $btn = $b['button'];
-                $btnTitle = (isset($btn['title']) && ($btn['title'])) ? ($btn['title']) : '';
-                $btnLink = (isset($btn['url']) && ($btn['url'])) ? ($btn['url']) : '';
-                $btnTarget = (isset($btn['target']) && ($btn['target'])) ? ($btn['target']) : '_self';
-                $style = $b['button_style'];
-                $btnClass = ($style=='outline') ? 'btn-outline':'btn-green';
-                if( $btnTitle && $btnLink ) { ?>
-                  <a href="<?php echo $btnLink ?>" target="<?php echo $btnTarget ?>" class="btn <?php echo $btnClass ?>"><?php echo $btnTitle ?></a>
+              <?php if ($left_buttons) { ?>
+              <div class="buttons">
+                <?php foreach ($left_buttons as $b) { 
+                  $btn = $b['button'];
+                  $btnTitle = (isset($btn['title']) && ($btn['title'])) ? ($btn['title']) : '';
+                  $btnLink = (isset($btn['url']) && ($btn['url'])) ? ($btn['url']) : '';
+                  $btnTarget = (isset($btn['target']) && ($btn['target'])) ? ($btn['target']) : '_self';
+                  $style = $b['button_style'];
+                  $btnClass = ($style=='outline') ? 'btn-outline':'btn-green';
+                  if( $btnTitle && $btnLink ) { ?>
+                    <a href="<?php echo $btnLink ?>" target="<?php echo $btnTarget ?>" class="btn <?php echo $btnClass ?>"><?php echo $btnTitle ?></a>
+                  <?php } ?>
                 <?php } ?>
+              </div>
               <?php } ?>
             </div>
-            <?php } ?>
           </div>
         </div>
         <?php } ?>
