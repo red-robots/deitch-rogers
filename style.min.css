@@ -1356,7 +1356,7 @@ input.gform_button:hover,input[type="submit"]:hover{border-color:#18485b;backgro
 .home-hero{margin-bottom:80px}
 .home-hero .hero-inner{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
 .home-hero .hero-col{width:100%}
-.home-hero .hero-col.left{padding-left:20px;padding-right:20px;margin-bottom:30px}
+.home-hero .hero-col.left{padding-left:20px;padding-right:20px;margin-bottom:30px;margin-top:50px}
 .home-hero .hero-col.left .hero-content{width:100%}
 .home-hero .hero-col.left .hero-content .inside{width:100%}
 .home-hero .hero-col.left p{margin-top:0}
@@ -1516,7 +1516,7 @@ blockquote .quote-author{display:block;width:100%;color:#7ebd42;text-transform:u
 #site-navigation #primary-menu #homepagelink{display:none}
 #site-navigation #primary-menu>li{margin-right:5px}
 .mobile-menu{display:none}
-.home-hero .hero-col.left{margin-bottom:0;width:50%;padding-left:20px;padding-right:0;padding-top:0;padding-bottom:0}
+.home-hero .hero-col.left{margin-top:0;margin-bottom:0;width:50%;padding-left:20px;padding-right:0;padding-top:0;padding-bottom:0}
 .home-hero .hero-col.left .hero-content{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:center;-ms-flex-align:center;align-items:center;max-width:575px;height:100%;float:right;padding-right:9vw}
 .home-hero .hero-col.left div.buttons{margin-top:60px;text-align:left}
 .home-hero .hero-col.left div.buttons .btn{width:auto;margin-left:0;margin-right:20px;margin-bottom:0}
