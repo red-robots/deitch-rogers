@@ -1504,6 +1504,7 @@ blockquote .quote-author{display:block;width:100%;color:#7ebd42;text-transform:u
 #sitemap-wrap #sitemap>li>a{padding-left:13px}
 #sitemap-wrap #sitemap>li>a:before{content:"";display:block;width:0;height:0;border-left:5px solid #18485b;border-top:5px solid transparent;border-bottom:5px solid transparent;position:absolute;top:8px;left:0;-webkit-transition:all ease .3s;transition:all ease .3s}
 #sitemap-wrap #sitemap>li>a:hover:before{border-left-color:#7ebd42;-webkit-transform:translateX(3px);transform:translateX(3px)}
+.sitemap-page #sitemap-wrap{margin-bottom:85px}
 .site-footer{width:100%;float:left;background:#efeded;color:#626365;font-size:15px}
 .site-footer .wrapper{padding-top:70px;padding-bottom:70px}
 .site-footer .footcol{width:100%;text-align:center}
