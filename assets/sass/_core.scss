@@ -143,6 +143,8 @@ input.gform_button, input[type="submit"] {
   &:hover {
     border-color: $primary;
     background: $primary;
+    transform: translateY(-2px);
+    box-shadow: 0 18px 20px rgba(0,0,0,0.15);
   }
 }
 .btn {
@@ -286,7 +288,7 @@ input.gform_button, input[type="submit"] {
       animation: logo_text1 0.8s forwards ease-in-out;
     }
     .l2 {
-      animation: logo_text1 0.8s forwards ease-in-out;
+      animation: logo_text2 0.8s forwards ease-in-out;
     }
     .cross { 
       opacity: 0;
@@ -612,7 +614,7 @@ input.gform_button, input[type="submit"] {
     .large-text {
       color: $primary;
       font-family: $font_secondary;
-      font-size: 38px;
+      font-size: 48px;
       line-height: 1.2;
       margin-bottom: 40px;
     }
@@ -690,7 +692,7 @@ input.gform_button, input[type="submit"] {
       top: 0;
       left: 0;
       backface-visibility: hidden;
-      transition: transform .6s;
+      transition: transform .9s;
       @include backgroundImage(center);
       &.front {
         transform: scale(1.01) perspective(1000px) rotateY(0);
@@ -753,7 +755,7 @@ input.gform_button, input[type="submit"] {
   from {
     opacity: 0;
     width: 0;
-    transform: translateY(35px) translateX(20%);
+    transform: translateY(0) translateX(30%);
   }
   to {
     width: auto;
@@ -765,7 +767,7 @@ input.gform_button, input[type="submit"] {
   from {
     opacity: 0;
     width: 0;
-    transform: translateY(35px) translateX(-20%);
+    transform: translateY(0) translateX(-30%);
   }
   to {
     width: auto;
@@ -1355,21 +1357,123 @@ blockquote  {
           display: block;
           width: 100%;
           height: auto;
+          float: left;
           @include tab {
             visibility: hidden;
           }
         }
         div.img {
-          display: none;
-          position: absolute;
-          top: 0;
-          left: 40px;
-          height: 100%;
-          width: calc(50vw - 40px);
+          // display: none;
+          // position: absolute;
+          // top: 0;
+          // left: 40px;
+          // height: 100%;
+          // width: calc(50vw - 40px);
+          width: 100%;
+          float: left;
           @include backgroundImage(center);
           background-color: #CCC;
           @include tab {
             display: block;
+            width: calc(50vw - 40px);
+          }
+        }
+      }
+    }
+    &.half {
+      .fcol {
+        @include tab {
+          width: 50%;
+        }
+        &.photo {
+          @include tab {
+            padding-left: 50px;
+          }
+        }
+      }
+    }
+  }
+
+  .entry-content {
+    margin-bottom: 80px;
+    .profpic {
+      display: inline-block;
+      float: left;
+      border-radius: 100%;
+      overflow: hidden;
+      @include backgroundImage(center);
+      margin-right: 30px;
+      margin-bottom: 20px;
+      img {
+        width: 160px;
+        height: auto;
+        float: left;
+        visibility: hidden;
+      }
+    }
+    h2 {
+      font-family: $font_secondary;
+      font-size: 25px;
+      font-weight: 400;
+      line-height: 1.2;
+      margin: 50px 0 20px;
+      color: $primary;
+      @include tab {
+        font-size: 30px;
+      }
+    }
+  }
+}
+
+.expertise-page {
+  .page-title {
+    margin-top: 0;
+  }
+  .top {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    @include tab {
+      margin-top: 0;
+    }
+    .fcol {
+      width: 100%;
+      position: relative;
+      &.left {
+        margin-bottom: 30px;
+        @include tab {
+          margin-bottom: 0;
+          padding-right: 5vw;
+          @include flexgroup-center();
+        }
+        .inner {
+          width: 100%;
+        }
+      }
+      &.photo {
+        position: relative;
+        img {
+          display: block;
+          width: 100%;
+          height: auto;
+          float: left;
+          @include tab {
+            visibility: hidden;
+          }
+        }
+        div.img {
+          // display: none;
+          // position: absolute;
+          // top: 0;
+          // left: 40px;
+          // height: 100%;
+          // width: calc(50vw - 40px);
+          width: 100%;
+          float: left;
+          @include backgroundImage(center);
+          background-color: #CCC;
+          @include tab {
+            display: block;
+            width: calc(50vw - 40px);
           }
         }
       }
@@ -1495,6 +1599,78 @@ blockquote  {
 
 #bottom-contact-form {
   margin-bottom: 50px;
+}
+
+.page404 {
+  #main {
+    min-height:20em;
+    @include desk {
+      min-height:30em;
+    }
+  }
+}
+
+#sitemap-wrap {
+  margin: 30px 0;
+  ul {
+    margin: 0 0;
+    padding: 0 0;
+    list-style: none;
+    a {
+      display: inline-block;
+      text-decoration: none;
+      position: relative;
+    }
+  }
+  #sitemap {
+    @include tab {
+      column-count: 2;
+    }
+  }
+  #sitemap > li {
+    @include tab {
+      min-height: 30px;
+    }
+    ul {
+      padding-left: 35px;
+      a {
+        padding-left: 14px;
+        &:before {
+          content:"";
+          display: block;
+          width: 6px;
+          height: 6px;
+          background: $primary;
+          position: absolute;
+          top: 11px;
+          left: 0;
+          border-radius:100px;
+        }
+      }
+    }
+  }
+  #sitemap > li > a {
+    padding-left: 13px;
+    &:before {
+      content:"";
+      display: block;
+      width: 0;
+      height: 0;
+      border-left: 5px solid $primary;
+      border-top: 5px solid transparent;
+      border-bottom: 5px solid transparent;
+      position: absolute;
+      top: 8px;
+      left: 0;
+      transition: all ease .3s;
+    }
+    &:hover {
+      &:before {
+        border-left-color: $green;
+        transform: translateX(3px);
+      }
+    }
+  }
 }
 
 /* Footer */

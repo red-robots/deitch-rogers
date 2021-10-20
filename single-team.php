@@ -79,8 +79,9 @@ get_header(); ?>
           </div>
           <?php if ($mainpic) { ?>
           <div class="fcol right photo">
-            <div class="img" style="background-image:url('<?php echo $mainpic['url'] ?>')"></div>
-            <img src="<?php echo $mainpic['url'] ?>" alt="<?php echo $mainpic['title'] ?>" class="actual-image">
+            <div class="img" style="background-image:url('<?php echo $mainpic['url'] ?>')">
+              <img src="<?php echo $mainpic['url'] ?>" alt="<?php echo $mainpic['title'] ?>" class="actual-image">
+            </div>
           </div>
           <?php } ?>
         </div>

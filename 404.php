@@ -24,9 +24,11 @@ get_header(); ?>
       <div class="content404"><?php echo email_obfuscator($content) ?></div>
       <?php } ?>
 
+      <?php if ( has_nav_menu('sitemap') ) { ?>
       <div id="sitemap-wrap">
         <?php wp_nav_menu( array( 'theme_location' => 'sitemap', 'menu_id' => 'sitemap','container_class'=>'sitemap-links') ); ?>
       </div>
+      <?php } ?>
 
     <?php } else { ?>
 
