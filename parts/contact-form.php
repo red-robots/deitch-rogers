@@ -20,7 +20,7 @@ if ( $featured_image || ($form_title || $form_text) || $bottom_logos ) { ?>
 
       <?php if ( $form_title || $form_text) { ?>
       <div class="fcol text">
-        <div id="contactform" class="inner">
+        <div id="contactform" class="inner wow fadeInUp">
           <?php if ($form_title) { ?>
            <h3 class="title h1"><?php echo $form_title ?></h3> 
           <?php } ?>

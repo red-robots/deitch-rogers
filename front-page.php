@@ -102,7 +102,7 @@ $hero_class = ( ($large_text || $small_text) && $grid_images ) ? 'half':'full';
   
   $row2_class = ( $row2_col1_content && $row2_col2_content ) ? 'columns-2':'columns-1';
   if( $row2_col1_content || $row2_col2_content ) { ?>
-  <div id="homerow2" class="section-with-icons fw <?php echo $row2_class ?> wow fadeIn">
+  <div id="homerow2" class="section-with-icons fw <?php echo $row2_class ?>">
     <div class="wrapper">
       <div class="flexwrap">
 
@@ -113,7 +113,7 @@ $hero_class = ( ($large_text || $small_text) && $grid_images ) ? 'half':'full';
           $row2_content = ( isset($row2_group['col'.$i.'_content']) && $row2_group['col'.$i.'_content'] ) ? $row2_group['col'.$i.'_content'] : '';
           ?>
           <?php if ($row2_content) { ?>
-          <div class="col-icons <?php echo ($i==1) ? 'left':'right'; ?>">
+          <div class="col-icons wow fadeInUp <?php echo ($i==1) ? 'left':'right'; ?>">
             <div class="inner">
               <?php if ($row2_icon) { ?>
                <div class="icon"><span style="background-image:url('<?php echo $row2_icon['url'] ?>')"></span></div> 
@@ -209,7 +209,7 @@ $hero_class = ( ($large_text || $small_text) && $grid_images ) ? 'half':'full';
       <?php } ?>
 
       <?php if ( $row4_title || $row4_quote ) { ?>
-      <div class="itb-col text wow fadeInRight">
+      <div class="itb-col text wow fadeInUp">
         <div class="inner">
           <?php if ($row4_title) { ?>
            <h3 class="title h1"><?php echo $row4_title ?></h3> 
@@ -296,7 +296,7 @@ $hero_class = ( ($large_text || $small_text) && $grid_images ) ? 'half':'full';
       <?php } ?>
 
       <?php if ( $row6_title || $row6_quote ) { ?>
-      <div class="itb-col text wow fadeInLeft">
+      <div class="itb-col text wow fadeInUp">
         <div class="inner">
           <?php if ($row6_title) { ?>
            <h3 class="title h1"><?php echo $row6_title ?></h3> 
@@ -410,7 +410,7 @@ $hero_class = ( ($large_text || $small_text) && $grid_images ) ? 'half':'full';
       <?php } ?>
 
       <?php if ( $row9_title || $row9_quote ) { ?>
-      <div class="itb-col text wow fadeInRight">
+      <div class="itb-col text wow fadeInUp">
         <div class="inner">
           <?php if ($row9_title) { ?>
            <h3 class="title h1"><?php echo $row9_title ?></h3> 
@@ -444,14 +444,14 @@ if ( $team->have_posts() ) {
 <div id="homerowTeams" class="team-columns fw wow fadeIn count-<?php echo $count ?>">
   <div class="wrapper">
     <div class="flexwrap">
-    <?php while ( $team->have_posts() ) : $team->the_post(); ?>
+    <?php $n=1; while ( $team->have_posts() ) : $team->the_post(); ?>
       <?php  
       $photo = get_field('photo'); 
       $shortBio = get_field('short_bio'); 
       $largeText = ( isset($shortBio['large_text']) && $shortBio['large_text'] ) ? $shortBio['large_text'] : '';
       $smallText = ( isset($shortBio['small_text']) && $shortBio['small_text'] ) ? $shortBio['small_text'] : '';
       ?>
-      <div class="team">
+      <div class="team wow fadeInUp" data-wow-delay="0.<?php echo $n?>s">
         <div class="photo <?php echo ($photo) ? 'yes':'no' ?>">
           <?php if ($photo) { ?>
           <span class="img" style="background-image:url('<?php echo $photo['url'] ?>')"></span> 
@@ -472,7 +472,7 @@ if ( $team->have_posts() ) {
           </div>
         </div>
       </div>
-    <?php endwhile; wp_reset_postdata(); ?>
+    <?php $n++; endwhile; wp_reset_postdata(); ?>
     </div>
   </div>
 </div>
@@ -541,7 +541,7 @@ if ( $team->have_posts() ) {
       <?php } ?>
 
       <?php if ($row11_title || $row11_text) { ?>
-      <div class="itb-col text wow fadeInRight">
+      <div class="itb-col text wow fadeInUp">
         <div class="inner">
           <?php if ($row11_title) { ?>
            <h3 class="title h1"><?php echo $row11_title ?></h3> 
@@ -592,7 +592,7 @@ if ( $team->have_posts() ) {
           $row12BtnTarget = (isset($row12Btn['target']) && ($row12Btn['target'])) ? ($row12Btn['target']) : '_self';
           ?>
           <?php if ($row12_content) { ?>
-          <div class="col-icons <?php echo ($i==1) ? 'left':'right'; ?>">
+          <div class="col-icons wow fadeInUp <?php echo ($i==1) ? 'left':'right'; ?>" data-wow-delay="0.<?php echo $i ?>s">
             <div class="inner">
               <?php if ($row12_icon) { ?>
                <div class="icon"><span style="background-image:url('<?php echo $row12_icon['url'] ?>')"></span></div> 
