@@ -14,23 +14,23 @@ $hero_class = ( ($large_text || $small_text) && $grid_images ) ? 'half':'full';
     <div class="fullwrap fw">
       <div class="hero-inner fw">
         <?php if ($large_text || $small_text) { ?>
-        <div class="hero-col left wow fadeIn">
+        <div class="hero-col left">
           <div class="hero-content">
             <div class="inside">
               <?php if ($large_text) { ?>
-              <div class="large-text">
+              <div class="large-text wow fadeIn">
                 <?php echo $large_text ?>
               </div>
               <?php } ?>
 
               <?php if ($small_text) { ?>
-              <div class="small-text">
+              <div class="small-text wow fadeIn">
                 <?php echo $small_text ?>
               </div>
               <?php } ?>
 
               <?php if ($left_buttons) { ?>
-              <div class="buttons">
+              <div class="buttons  wow fadeInDown">
                 <?php foreach ($left_buttons as $b) { 
                   $btn = $b['button'];
                   $btnTitle = (isset($btn['title']) && ($btn['title'])) ? ($btn['title']) : '';

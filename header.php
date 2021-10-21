@@ -58,11 +58,11 @@ $btnLink = ( isset($hb['url']) && $hb['url'] ) ? $hb['url'] : '';
         <a class="mobile-menu" id="menutoggle" href="#mobile-menu"><span class="bar"></span><i>Menu</i></a>
 
         <div id="siteNav" class="outerNav">
-    			<nav id="site-navigation" class="main-navigation" role="navigation">
+    			<nav id="site-navigation" class="main-navigation wow fadeIn" role="navigation">
             <?php wp_nav_menu( array( 'theme_location' => 'primary', 'container'=>false, 'menu_id' => 'primary-menu','link_before'=>'<span>','link_after'=>'</span>',) ); ?>
           </nav>
           <?php if ($btnName && $btnLink) { ?>
-          <a href="<?php echo $btnLink ?>" target="<?php echo $btnTarget ?>" class="top-cta-btn btn-contact"><span><?php echo $btnName ?></span></a>
+          <a href="<?php echo $btnLink ?>" target="<?php echo $btnTarget ?>" class="top-cta-btn btn-contact wow fadeInDown"><span><?php echo $btnName ?></span></a>
           <?php } ?>
         </div>
         <div class="menu-overlay"></div>
