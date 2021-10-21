@@ -309,7 +309,7 @@ input.gform_button, input[type="submit"] {
     stroke-dasharray: 1000;
     stroke-dashoffset: 1000;
     animation: dash 0.8s linear forwards;
-    // animation-delay: 3s;
+    animation-delay: 1s;
     .st2 {
       fill:#295136;
       @include transition(all ease-out .1s);
