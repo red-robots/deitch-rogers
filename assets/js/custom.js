@@ -8,6 +8,11 @@
 jQuery(document).ready(function ($) {
   var site_url = $("#site-logo a").attr("href");
   var site_logo = $("#site-logo a").html();
+  $("#primary-menu li.menu-item-has-children").hover(function () {
+    $("#navOverlay").addClass('active');
+  }, function () {
+    $("#navOverlay").removeClass('active');
+  });
   /* Mobile Menu */
 
   $("#menutoggle").on("click", function (e) {

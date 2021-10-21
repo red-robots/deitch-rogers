@@ -70,6 +70,7 @@ $btnLink = ( isset($hb['url']) && $hb['url'] ) ? $hb['url'] : '';
   		</div>
     </div>	
 	</header>
+  <div id="navOverlay"></div>
 
 	<?php get_template_part('parts/hero'); ?>
 
