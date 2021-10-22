@@ -20,7 +20,7 @@ function my_login_logo() {
   // $custom_logo_id = get_theme_mod( 'custom_logo' );
   // $logoImg = wp_get_attachment_image_src($custom_logo_id,'large');
   // $logo_url = ($logoImg) ? $logoImg[0] : '';
-  $logo_url = get_template_directory_uri().'/images/logo.svg';
+  $logo_url = get_template_directory_uri().'/images/logo.png';
   if($logo_url) { ?>
   <style type="text/css">
     body.login {
