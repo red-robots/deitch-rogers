@@ -12,6 +12,7 @@ get_header(); ?>
 
       <?php /* ROW 1 */
       $row1_photo = get_field("row1_photo");
+      $row1_title = get_field("row1_title");
       $row1_text = get_field("row1_text");
       $row1_buttons = get_field("row1_buttons");
       $row1_class = ( $row1_text || $row1_photo ) ? 'half':'full';
@@ -22,7 +23,12 @@ get_header(); ?>
           <?php if ($row1_text) { ?>
             <div class="fcol text wow fadeInLeft">
               <div class="inside">
-                <div class="info"><?php echo anti_email_spam($row1_text); ?></div>
+                <div class="info">
+                    <?php if ($row1_title) { ?>
+                     <h2 class="title"><?php echo $row1_title ?></h2> 
+                    <?php } ?>
+                    <?php echo anti_email_spam($row1_text); ?>
+                </div>
                 <?php if ($row1_buttons) { ?>
                 <div class="button-group  wow fadeInDown">
                   <?php foreach ($row1_buttons as $b) { 

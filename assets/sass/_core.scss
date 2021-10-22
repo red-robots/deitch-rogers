@@ -1787,13 +1787,23 @@ svg.animate-logo {
           ont-weight: 700;
           color: $green;
         }
-        h2 {
+        .title,h2 {
           color: $primary;
           font-family: $font_secondary;
-          font-size: 48px;
           font-weight: 400;
           line-height: 1.2;
+        }
+        .title {
+          font-size: 48px;
+          margin-top: 0;
           margin-bottom: 40px;
+        }
+        h2 {
+          font-size: 30px;
+          margin: 30px 0 10px;
+        }
+        .button-group {
+          margin-top: 35px;
         }
       }
     }

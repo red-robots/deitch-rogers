@@ -1514,7 +1514,10 @@ svg.animate-logo .cross{opacity:0;-webkit-animation:logo_cross .5s linear forwar
 .animate-stroke{fill:#fff;stroke:#fff;stroke-width:0;-webkit-animation:logo 2s normal forwards ease-in-out;animation:logo 2s normal forwards ease-in-out;-webkit-animation-duration:3s;animation-duration:3s}
 .s1-text-image .fcol.text .inside{width:100%;font-size:24px;font-weight:300;line-height:1.3}
 .s1-text-image .fcol.text .inside strong,.s1-text-image .fcol.text .inside b{ont-weight:700;color:#7ebd42}
-.s1-text-image .fcol.text .inside h2{color:#18485b;font-family:"Playfair Display",serif;font-size:48px;font-weight:400;line-height:1.2;margin-bottom:40px}
+.s1-text-image .fcol.text .inside .title,.s1-text-image .fcol.text .inside h2{color:#18485b;font-family:"Playfair Display",serif;font-weight:400;line-height:1.2}
+.s1-text-image .fcol.text .inside .title{font-size:48px;margin-top:0;margin-bottom:40px}
+.s1-text-image .fcol.text .inside h2{font-size:30px;margin:30px 0 10px}
+.s1-text-image .fcol.text .inside .button-group{margin-top:35px}
 .s1-text-image .fcol.image div.img{width:100%;float:left;background-size:cover;background-position:top center;background-repeat:no-repeat;background-color:#CCC;width:50vw}
 .s1-text-image .fcol.image div.img img{width:100%;height:auto;float:left;visibility:hidden;opacity:0}
 .s2-regular-text h2{margin-bottom:0}
