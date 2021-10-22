@@ -6,7 +6,7 @@ if($bottom_logos) { ?>
   <div class="wrapper">
     <?php foreach ($bottom_logos as $b) { ?>
      <span>
-      <img src="<?php echo $b['url'] ?>" alt="<?php echo $b['title'] ?>">
+      <img src="<?php echo $b['url'] ?>" alt="<?php echo $b['title'] ?>" class="wow fadeInUp">
      </span> 
     <?php } ?>
   </div>

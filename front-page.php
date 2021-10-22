@@ -66,10 +66,16 @@ $hero_class = ( ($large_text || $small_text) && $grid_images ) ? 'half':'full';
                 $open_link = '<a href="'.$btnLink.'" class="card">';
                 $close_link = '</a>';
               }
+              $has_logo = ( isset($img['has_logo']) && $img['has_logo']=='yes' ) ? true : false;
               if($front_img) { ?>
-              <div class="block">
+              <div class="block sudden">
                 <?php echo $open_link ?>
                   <span class="front img" style="background-image:url('<?php echo $front_img['url'] ?>')">
+                    <?php if ($has_logo) { ?>
+                      <span class="logo-white">
+                        <?php get_template_part('parts/logo-white') ?>
+                      </span>
+                    <?php } ?>
                   </span>
                   <?php if($back_img) { ?>
                   <span class="back img" style="background-image:url('<?php echo $back_img['url'] ?>')">
@@ -290,13 +296,13 @@ $hero_class = ( ($large_text || $small_text) && $grid_images ) ? 'half':'full';
   <div id="homerow6" class="image-text-block reverse fw wow fadeIn <?php echo $row6_class ?>">
     <div class="flexwrap">
       <?php if ($row6_image) { ?>
-      <div class="itb-col image wow fadeIn" style="background-image:url('<?php echo $row6_image['url'] ?>')">
+      <div class="itb-col image wow fadeInRight" style="background-image:url('<?php echo $row6_image['url'] ?>')">
         <img src="<?php echo get_images_dir('rectangle.png') ?>" alt="">
       </div>
       <?php } ?>
 
       <?php if ( $row6_title || $row6_quote ) { ?>
-      <div class="itb-col text wow fadeInUp">
+      <div class="itb-col text wow fadeInLeft">
         <div class="inner">
           <?php if ($row6_title) { ?>
            <h3 class="title h1"><?php echo $row6_title ?></h3> 

@@ -270,6 +270,34 @@ function admin_head_scripts() { ?>
 <?php
 }
 
+/* ACF CUSTOM VALUES */
+$gravityFormsSelections = array('gravityForm');
+function acf_load_gravity_form_choices( $field ) {
+    // reset choices
+    $field['choices'] = array();
+    $choices = getGravityFormList();
+    if( $choices && is_array($choices) ) {       
+        foreach( $choices as $choice ) {
+            $post_id = $choice->id;
+            $post_title = $choice->title;
+            $field['choices'][ $post_id ] = $post_title;
+        }
+    }
+    return $field;
+}
+foreach($gravityFormsSelections as $fieldname) {
+  add_filter('acf/load_field/name='.$fieldname, 'acf_load_gravity_form_choices');
+}
+
+function getGravityFormList() {
+    global $wpdb;
+    $query = "SELECT id, title FROM ".$wpdb->prefix."gf_form WHERE is_active=1 AND is_trash=0 ORDER BY title ASC";
+    $result = $wpdb->get_results($query);
+    return ($result) ? $result : '';
+}
+
+
+
 
 /* Update Peope post type */
 // if( (isset($_GET['post_type']) && $_GET['post_type']=='team') && (isset($_GET['do']) && $_GET['do']=='update') ) {

@@ -51,7 +51,7 @@ get_header(); ?>
 
       <div class="top <?php echo $top_class ?>">
         <div class="flexwrap">
-          <div class="fcol left">
+          <div class="fcol left animated fadeInLeft">
             <div class="inner">
               <h1 class="page-title"><?php the_title(); ?></h1>
               <?php if ($toptext || $top_buttons) { ?>
@@ -78,7 +78,7 @@ get_header(); ?>
             </div>
           </div>
           <?php if ($mainpic) { ?>
-          <div class="fcol right photo">
+          <div class="fcol right photo animated fadeInRight">
             <div class="img" style="background-image:url('<?php echo $mainpic['url'] ?>')">
               <img src="<?php echo $mainpic['url'] ?>" alt="<?php echo $mainpic['title'] ?>" class="actual-image">
             </div>
@@ -88,7 +88,7 @@ get_header(); ?>
       </div>
 
       <?php $smallpic = get_field("photo"); ?>
-      <div class="entry-content <?php echo ($smallpic) ? 'haspic':'nopic' ?>">
+      <div class="entry-content wow fadeIn <?php echo ($smallpic) ? 'haspic':'nopic' ?>">
         <?php if ($smallpic) { ?>
           <span class="profpic" style="background-image:url('<?php echo $smallpic['url'] ?>')">
             <img src="<?php echo get_images_dir('square.png') ?>" alt="">
