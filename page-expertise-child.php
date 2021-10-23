@@ -399,7 +399,7 @@ $counter = 1;
           <div class="flexwrap">
             <?php if ($formImage) { ?>
             <div class="fcol image wow fadeIn">
-              <div class="img" style="background-image:url('<?php echo $formImage['url'] ?>')"></div>
+              <div class="img parallax-image-block" style="background-image:url('<?php echo $formImage['url'] ?>')"></div>
               <img src="<?php echo get_images_dir('rectangle.png') ?>" alt="" class="helper">
             </div>
             <?php } ?>

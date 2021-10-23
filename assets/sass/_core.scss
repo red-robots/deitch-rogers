@@ -1618,7 +1618,7 @@ blockquote  {
       width: 100%;
       height: 100%;
       @include backgroundImage(center);
-      background-color: #CCC;
+      // background-color: #CCC;
       @include tab {
         width: calc(50vw - 40px);
         display: block;
