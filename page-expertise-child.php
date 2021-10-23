@@ -162,7 +162,7 @@ $counter = 1;
         else if( get_row_layout() == 'icon_title_text' ) { 
           $textWithIcons = get_sub_field('content');
           if($textWithIcons) { ?>
-          <div class="text-with-icons flexcontent ">
+          <div class="text-with-icons flexcontent wow fadeInUp">
             <div class="wrapper">
               <div class="wrap2">
                 <div class="flexwrap">
@@ -327,7 +327,7 @@ $counter = 1;
         /* Long Description (Fullwidth Text) */
         else if( get_row_layout() == 'long_description_fullwidth_text' ) { 
           if( $full_text = get_sub_field('full_text') ) {  ?>
-          <div class="full-text-block flexcontent">
+          <div class="full-text-block flexcontent wow fadeInUp">
             <div class="wrapper">
               <?php echo $full_text ?>
             </div>
