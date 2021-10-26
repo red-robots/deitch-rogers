@@ -1,6 +1,5 @@
 <?php
-$form = get_field("footer_contact_form_section","option");
-$bottom_logos = ( isset($form['bottom_logo']) && $form['bottom_logo'] ) ? $form['bottom_logo'] : '';
+$bottom_logos = get_field("bottom_logo_group","option");
 if($bottom_logos) { ?>
 <div id="bottom-logos" class="bottom-logos fw">
   <div class="wrapper">

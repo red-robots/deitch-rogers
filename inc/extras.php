@@ -271,7 +271,7 @@ function admin_head_scripts() { ?>
 }
 
 /* ACF CUSTOM VALUES */
-$gravityFormsSelections = array('gravityForm');
+$gravityFormsSelections = array('gravityForm','global_the_form');
 function acf_load_gravity_form_choices( $field ) {
     // reset choices
     $field['choices'] = array();

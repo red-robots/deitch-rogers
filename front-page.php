@@ -524,7 +524,7 @@ if ( $team->have_posts() ) {
   <div id="homerow10">
     <?php 
       $show_logo = false;
-      include( locate_template('parts/contact-form.php') ); 
+      include( locate_template('parts/home-contact-form.php') ); 
     ?>
   </div>
 

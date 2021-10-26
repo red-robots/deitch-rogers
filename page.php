@@ -12,7 +12,7 @@
  * @package bellaworks
  */
 get_header(); ?>
-<div id="primary" class="content-area">
+<div id="primary" class="content-area default-template">
 	<main id="main" class="site-main wrapper">
 		<?php while ( have_posts() ) : the_post(); ?>
       <header class="entry-title"><h1 class="page-title"><?php the_title(); ?></h1></header>
