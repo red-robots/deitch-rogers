@@ -399,10 +399,16 @@ input.gform_button, input[type="submit"] {
   #primary-menu > li.current_page_item:hover > a {
     background-color: $green;
     color: #FFF;
-    padding: 13px 32px 13px 20px;
+    padding: 13px 25px 15px 25px;
     &:before, &:after {
       background: #FFF;
     } 
+  }
+  #primary-menu > li.menu-item-has-children.current_page_parent > a,
+  #primary-menu > li.menu-item-has-children.current_page_parent:hover > a,
+  #primary-menu > li.menu-item-has-children.current_page_item > a,
+  #primary-menu > li.menu-item-has-children.current_page_item:hover > a {
+    padding: 13px 32px 13px 20px;
   }
   #primary-menu > li > ul {
     position: absolute;
@@ -1023,7 +1029,7 @@ blockquote  {
 }
 
 .full-text-block {
-  margin: 50px 0;
+  margin: 50px 0 60px;
   h2 {
     font-family: $font_secondary;
     font-size: 20px;
@@ -1668,7 +1674,14 @@ blockquote  {
 
 #bottom-contact-form {
   margin-bottom: 50px;
+  &.imageTextBlock .fcol.image div.img {
+    @include tab {
+      width: 50vw;
+      left: 0;
+    }
+  }
 }
+
 
 .page404 {
   #main {
@@ -2156,6 +2169,29 @@ svg.animate-logo {
       }
     }
   }
+  &.even.half.image-left {
+    .flexwrap.full {
+      .fcol.image {
+        @include tab {
+          right: unset;
+          left: 0;
+        }
+      }
+    }
+    .text-content {
+      .flexwrap {
+        @include tab {
+          @include flexbox-direction(row);
+        }
+      }
+      .fcol.text {
+        @include tab {
+          padding-right: 0;
+          padding-left: 7vw;
+        }
+      }
+    }
+  }
 }
 .full-text-block.flexcontent {
   width: 100%;
@@ -2215,6 +2251,20 @@ svg.animate-logo {
 
 .page-template-page-child-expertise #bottom-logos {
   padding-top: 50px;
+}
+body.page-template-page-flexible-content {
+  #bottom-contact-form {
+    .fcol.text {
+      padding-top: 50px;
+      padding-bottom: 50px;
+    }
+    &.imageTextBlock .fcol.image div.img {
+      @include tab {
+        width: 50vw;
+        left: 0;
+      }
+    }
+  }
 }
 
 .default-template {

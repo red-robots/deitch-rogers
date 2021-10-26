@@ -89,13 +89,15 @@ $counter = 1;
           $short_description = get_sub_field('short_description'); 
           $buttons = get_sub_field('buttons'); 
           $image = get_sub_field('image'); 
+          $image_position = get_sub_field("image_position");
+          $pos = ($image_position) ? ' image-'.$image_position : "";
           $buttons = get_sub_field("buttons");
           $section =  ($image && ($title || $short_description) ) ? ' half':' full'; 
           if( $image || ($title || $short_description) ) { 
           $oddeven = ($n % 2 == 0) ? 'even':'odd'; 
           $first = ($n==1) ? ' first':'';
           ?>
-          <div class="image-text-section flexcontent <?php echo $oddeven.$section.$first ?>">
+          <div class="image-text-section flexcontent <?php echo $oddeven.$section.$first.$pos ?>">
             <div class="flexwrap full">
               <?php if ($image) { ?>
                 <div class="fcol image parallax-image-block wow fadeIn" style="background-image:url('<?php echo $image['url'] ?>')">
