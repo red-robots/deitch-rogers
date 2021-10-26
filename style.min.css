@@ -1586,7 +1586,7 @@ body.home #bottom-contact-form{margin-bottom:0}
 .button-group{text-align:left}
 .button-group .btn{width:auto;margin-left:0;margin-right:1vw;margin-bottom:0}
 .site-header{height:auto;padding-top:20px}
-.site-header .wrapper{top:0;max-width:98%}
+.site-header .wrapper{top:0}
 .site-header .top-cta-btn{top:2px;right:0}
 #navOverlay.active{display:block;-webkit-animation-name:fadeIn;animation-name:fadeIn}
 #site-logo{width:220px;top:-9px}

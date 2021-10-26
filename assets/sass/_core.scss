@@ -252,7 +252,7 @@ input.gform_button, input[type="submit"] {
     top: 9px;
     @include tab {
       top: 0;
-      max-width: 98%;
+      // max-width: 98%;
     }
     .flexwrap {
       @include flexbox-align-items(center);
