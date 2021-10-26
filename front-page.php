@@ -525,6 +525,7 @@ if ( $team->have_posts() ) {
     <?php 
       $show_logo = false;
       include( locate_template('parts/home-contact-form.php') ); 
+      //get_template_part('parts/home-contact-form');
     ?>
   </div>
 

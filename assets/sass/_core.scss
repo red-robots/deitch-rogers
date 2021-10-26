@@ -1674,6 +1674,15 @@ blockquote  {
 
 #bottom-contact-form {
   margin-bottom: 50px;
+  .fcol.text {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    @include tab {
+      padding-top: 85px;
+      padding-bottom: 85px;
+    }
+
+  }
   &.imageTextBlock .fcol.image div.img {
     @include tab {
       width: 50vw;
@@ -1945,25 +1954,33 @@ svg.animate-logo {
           ont-weight: 700;
           color: $green;
         }
-        .title,h2 {
-          color: $primary;
-          font-family: $font_secondary;
-          font-weight: 400;
-          line-height: 1.2;
-        }
-        .title {
-          font-size: 48px;
-          margin-top: 0;
-          margin-bottom: 40px;
-        }
-        h2 {
-          font-size: 30px;
-          margin: 30px 0 10px;
-        }
         .button-group {
           margin-top: 35px;
         }
       }
+      .title, .h2 {
+        color: $primary;
+        font-family: $font_secondary;
+        font-size: 48px;
+        font-weight: 400;
+        line-height: 1.2;
+      }
+      .title {
+        margin-top: 0;
+        margin-bottom: 40px;
+      }
+
+      h2,h3,h4,h5 {
+        color: $primary;
+        font-family: $font_secondary;
+        font-weight: 400;
+        line-height: 1.2;
+        margin: 30px 0 10px;
+      }
+      h2 { font-size: 30px; }
+      h3 { font-size: 26px; }
+      h4 { font-size: 23px; }
+      h5 { font-size: 20px; }
     }
     &.image {
       width: 100%;
@@ -2007,7 +2024,7 @@ svg.animate-logo {
           }
           .fcol.text {
             padding-left: 0;
-            padding-right: 7vw;
+            padding-right: 5vw;
           }
         }
       }
@@ -2067,7 +2084,7 @@ svg.animate-logo {
       .fcol.text {
         @include tab {
           padding-right: 0;
-          padding-left: 7vw;
+          padding-left: 5vw;
         }
       }
     }
@@ -2163,7 +2180,7 @@ svg.animate-logo {
       }
       .fcol.text {
         @include tab {
-          padding-right: 7vw;
+          padding-right: 5vw;
           padding-left: 0;
         }
       }
@@ -2187,7 +2204,7 @@ svg.animate-logo {
       .fcol.text {
         @include tab {
           padding-right: 0;
-          padding-left: 7vw;
+          padding-left: 5vw;
         }
       }
     }
@@ -2254,10 +2271,6 @@ svg.animate-logo {
 }
 body.page-template-page-flexible-content {
   #bottom-contact-form {
-    .fcol.text {
-      padding-top: 50px;
-      padding-bottom: 50px;
-    }
     &.imageTextBlock .fcol.image div.img {
       @include tab {
         width: 50vw;
@@ -2269,6 +2282,10 @@ body.page-template-page-flexible-content {
 
 .default-template {
   #main {min-height:25em;}
+}
+
+body.home #bottom-contact-form {
+  margin-bottom: 0;
 }
 
 /* Footer */
