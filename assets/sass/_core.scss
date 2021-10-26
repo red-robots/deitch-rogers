@@ -1008,10 +1008,11 @@ blockquote  {
       width: 100%;
       padding: 0 20px;
       @include tab {
-        padding: 0 5vw;
+        max-width: 580px;
+        padding: 30px 5vw 30px 5vw;
       }
       @include desk {
-        padding: 0 10vw;
+        padding-right: 0;
       }
     }
     blockquote {
@@ -1025,6 +1026,27 @@ blockquote  {
         width: 50%;
       }
     } 
+  }
+}
+
+#homerow6.image-text-block {
+  .itb-col.text {
+    @include flexgroup-center();
+    @include flexbox-align-items(center);
+    @include flexbox-justify(center);
+    @include tab {
+      @include flexbox-justify(flex-end);
+    }
+    .inner {
+      padding: 0 20px;
+      @include tab {
+        padding-left: 5vw;
+        padding-right: 5vw;
+      }
+      @include desk {
+        padding-left: 0;
+      }
+    }
   }
 }
 
