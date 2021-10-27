@@ -164,7 +164,7 @@ $counter = 1;
         else if( get_row_layout() == 'icon_title_text' ) { 
           $textWithIcons = get_sub_field('content');
           if($textWithIcons) { ?>
-          <div class="text-with-icons flexcontent wow fadeInUp">
+          <div class="text-with-icons fw flexcontent wow fadeInUp">
             <div class="wrapper">
               <div class="wrap2">
                 <div class="flexwrap">

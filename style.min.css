@@ -1467,6 +1467,8 @@ blockquote .quote-author{display:block;width:100%;color:#7ebd42;text-transform:u
 #bottom-logos span,#home-logos span{display:inline-block;margin:10px}
 #bottom-logos img,#home-logos img{width:100px;height:auto}
 .bottom-padtop{width:100%;float:left;margin-top:50px}
+body.page-template-page-child-expertise .bottom-padtop{margin-top:0}
+body.page-template-page-child-expertise .bottom-padtop #bottom-logos{margin-top:0;padding-top:0 !important}
 .page-title{font-family:"Playfair Display",serif;font-size:30px;font-weight:400;line-height:1.2;margin:50px 0 20px;color:#18485b}
 .single-team .page-title{margin-top:0}
 .single-team .top{margin-top:50px;margin-bottom:50px}
@@ -1552,6 +1554,7 @@ svg.animate-logo .cross{opacity:0;-webkit-animation:logo_cross .5s linear forwar
 .image-text-section.bottom.first .text-content .flexwrap.reverse{-webkit-box-orient:horizontal;-webkit-box-direction:reverse;-ms-flex-direction:row-reverse;flex-direction:row-reverse}
 .image-text-section.even .flexwrap.full .fcol.image{position:relative;top:0}
 .full-text-block.flexcontent{width:100%;float:left}
+.text-with-icons{padding-top:50px;padding-bottom:50px}
 .text-with-icons .title{font-family:"Playfair Display",serif;font-size:25px;font-weight:400;line-height:1.2;margin:0 0 10px;text-transform:none;color:#18485b;text-align:center}
 .text-with-icons .twi{width:100%;padding:0;margin-top:20px;margin-bottom:20px}
 .text-with-icons div.icon{margin-bottom:10px;text-align:center}
@@ -1703,6 +1706,7 @@ body.home #bottom-contact-form{margin-bottom:0}
 .image-text-section.even.half.image-left .flexwrap.full .fcol.image{right:unset;left:0}
 .image-text-section.even.half.image-left .text-content .flexwrap{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
 .image-text-section.even.half.image-left .text-content .fcol.text{padding-right:0;padding-left:5vw}
+.text-with-icons{padding-top:60px;padding-bottom:60px}
 .text-with-icons .title{text-align:left}
 .text-with-icons .twi{padding:0 30px;width:50%}
 .text-with-icons div.icon{text-align:left}

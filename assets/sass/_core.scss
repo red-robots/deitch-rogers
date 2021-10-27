@@ -1417,7 +1417,8 @@ blockquote  {
   float: left;
   margin-top: 50px;
 }
-
+body.page-template-page-child-expertise .bottom-padtop {margin-top:0;}
+body.page-template-page-child-expertise .bottom-padtop #bottom-logos{margin-top:0;padding-top:0!important;}
 .page-title {
   font-family: $font_secondary;
   font-size: 30px;
@@ -2244,6 +2245,12 @@ svg.animate-logo {
 }
 
 .text-with-icons {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  @include tab {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
   .title {
     font-family: $font_secondary;
     font-size: 25px;
