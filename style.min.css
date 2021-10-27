@@ -1574,7 +1574,7 @@ body.home #bottom-contact-form{margin-bottom:0}
 .detailedForm.half.image-right .flexwrap .fcol.right{padding-right:20px}
 .detailedForm.half.image-right .flexwrap .fcol.right .wrap{padding-top:30px;padding-bottom:0}
 .detailedForm.half.image-right .flexwrap .fcol.right .gform_footer.top_label{margin-top:20px}
-.detailedForm .gform_footer.top_label{padding-top:0 !important}
+.detailedForm .gform_footer.top_label{padding-top:10px !important}
 .site-footer{width:100%;float:left;background:#efeded;color:#626365;font-size:15px}
 .site-footer .wrapper{padding-top:70px;padding-bottom:70px}
 .site-footer .footcol{width:100%;text-align:center}
