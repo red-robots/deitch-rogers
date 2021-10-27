@@ -98,12 +98,12 @@ $counter = 1;
           $first = ($n==1) ? ' first':'';
           ?>
           <div class="image-text-section flexcontent <?php echo $oddeven.$section.$first.$pos ?>">
+            <?php if ($image) { ?>
             <div class="flexwrap full">
-              <?php if ($image) { ?>
-                <div class="fcol image parallax-image-block wow fadeIn" style="background-image:url('<?php echo $image['url'] ?>')">
-                </div>  
-              <?php } ?>
+              <div class="fcol image parallax-image-block wow fadeIn" style="background-image:url('<?php echo $image['url'] ?>')">
+              </div>  
             </div>
+            <?php } ?>
             <div class="text-content wrapper">
               <div class="flexwrap">
 
@@ -247,8 +247,50 @@ $counter = 1;
               </div>
             </div>
           <?php } ?> 
-        <?php } ?> 
+        <?php } 
 
+
+        /* Image + Logo and Detailed Form */
+        else if( get_row_layout() == 'detailed_form' ) { 
+          $image = get_sub_field('df_featured_image');
+          $logo = get_sub_field('df_logo');
+          $text = get_sub_field('df_text');
+          $df_form = get_sub_field('df_form');
+          $image_position = get_sub_field('df_position');
+          $df_pos = ($image_position) ? ' image-'.$image_position:'';
+          $df_class = ($df_form && ($image ||$text) ) ? 'half' : 'full';
+          if($df_form || ($image ||$text) ) { ?>
+          <div class="detailedForm fw <?php echo $df_class.$df_pos ?>">
+            <div class="flexwrap">
+              <?php if ($image || $text) { ?>
+                <div class="fcol left wow fadeIn">
+                  <?php if ($image) { ?>
+                  <div class="image" style="background-image:url('<?php echo $image['url'] ?>')">
+                    <?php if ($logo) { ?>
+                     <img src="<?php echo $logo['url'] ?>" alt="" class="logo-overlay">
+                    <?php } ?>
+                    <img src="<?php echo get_images_dir('square.png') ?>" alt="" class="img-helper">
+                  </div>
+                  <?php } ?>
+
+                  <?php if ($text) { ?>
+                  <div class="text"><div class="wrap"><?php echo anti_email_spam($text); ?></div></div>
+                  <?php } ?>
+                </div>
+              <?php } ?>
+
+              <?php if ($df_form) { ?>
+                <div class="fcol right wow fadeIn">
+                  <div class="wrap">
+                    <?php echo $df_form; ?>
+                  </div>
+                </div>  
+              <?php } ?>
+            </div>
+          </div>
+          <?php } ?>
+
+        <?php } ?>
 
       <?php endwhile; ?>
 
@@ -262,58 +304,68 @@ $counter = 1;
       $gravityFormId = get_field("global_the_form","option"); 
       $gravityFormBottomText = get_field("global_disclosure","option"); 
       $formImage = get_field("form_image"); 
-      if(empty($formImage)) {
-        $formImage = get_field("global_form_image","option"); 
-      }
-      //[gravityform id="1" title="false" description="false" ajax="true"]
-      $shortcode = '';
-      if($gravityFormId) {
-        $shortcode = '[gravityform id="'.$gravityFormId.'" title="false" description="false" ajax="true"]';
-      }
-      $formClass = (($gravityFormTitle || $gravityFormTopText) && $shortcode && do_shortcode($shortcode)) ? 'half':'full';
-      if($gravityFormTitle || $gravityFormTopText || $shortcode || do_shortcode($shortcode) ) { ?>
-      <div id="bottom-contact-form" class="imageTextBlock reverse fw wow fadeIn <?php echo $class ?>">
-        <div class="wrapper">
-          <div class="flexwrap">
-            <?php if ($formImage) { ?>
-            <div class="fcol image wow fadeIn">
-              <div class="img parallax-image-block" style="background-image:url('<?php echo $formImage['url'] ?>')"></div>
-              <img src="<?php echo get_images_dir('rectangle.png') ?>" alt="" class="helper">
-            </div>
-            <?php } ?>
-
-            <?php if ( $gravityFormTitle || $gravityFormTopText) { ?>
-            <div class="fcol text">
-              <div id="contactform" class="inner wow fadeInUp">
-                <?php if ($gravityFormTitle) { ?>
-                 <h3 class="title h1"><?php echo $gravityFormTitle ?></h3> 
-                <?php } ?>
-
-                <?php if ($gravityFormTopText) { ?>
-                <div class="top-form-text">
-                  <?php echo anti_email_spam($gravityFormTopText) ?>
+      $form_disable = get_field("form_disable");
+      $show_form = ($form_disable=='yes') ? false : true;
+      if($show_form) {
+        if(empty($formImage)) {
+          $formImage = get_field("global_form_image","option"); 
+        }
+        //[gravityform id="1" title="false" description="false" ajax="true"]
+        $shortcode = '';
+        if($gravityFormId) {
+          $shortcode = '[gravityform id="'.$gravityFormId.'" title="false" description="false" ajax="true"]';
+        }
+        $formClass = (($gravityFormTitle || $gravityFormTopText) && $shortcode && do_shortcode($shortcode)) ? 'half':'full';
+        if($gravityFormTitle || $gravityFormTopText || $shortcode || do_shortcode($shortcode) ) { ?>
+          <div id="bottom-contact-form" class="imageTextBlock reverse fw wow fadeIn <?php echo $class ?>">
+            <div class="wrapper">
+              <div class="flexwrap">
+                <?php if ($formImage) { ?>
+                <div class="fcol image wow fadeIn">
+                  <div class="img parallax-image-block" style="background-image:url('<?php echo $formImage['url'] ?>')"></div>
+                  <img src="<?php echo get_images_dir('rectangle.png') ?>" alt="" class="helper">
                 </div>
                 <?php } ?>
 
-                <?php if ( $shortcode && do_shortcode($shortcode) ) { ?>
-                <div class="form-wrap">
-                  <?php echo do_shortcode($shortcode); ?>
-                </div>
-                <?php } ?>
+                <?php if ( $gravityFormTitle || $gravityFormTopText) { ?>
+                <div class="fcol text">
+                  <div id="contactform" class="inner wow fadeInUp">
+                    <?php if ($gravityFormTitle) { ?>
+                     <h3 class="title h1"><?php echo $gravityFormTitle ?></h3> 
+                    <?php } ?>
 
-                <?php if ($gravityFormBottomText) { ?>
-                <div class="bottom-form-text">
-                  <small class="smtxt"><?php echo anti_email_spam($gravityFormBottomText) ?></small>
+                    <?php if ($gravityFormTopText) { ?>
+                    <div class="top-form-text">
+                      <?php echo anti_email_spam($gravityFormTopText) ?>
+                    </div>
+                    <?php } ?>
+
+                    <?php if ( $shortcode && do_shortcode($shortcode) ) { ?>
+                    <div class="form-wrap">
+                      <?php echo do_shortcode($shortcode); ?>
+                    </div>
+                    <?php } ?>
+
+                    <?php if ($gravityFormBottomText) { ?>
+                    <div class="bottom-form-text">
+                      <small class="smtxt"><?php echo anti_email_spam($gravityFormBottomText) ?></small>
+                    </div>
+                    <?php } ?>
+                  </div>
                 </div>
                 <?php } ?>
               </div>
             </div>
-            <?php } ?>
           </div>
-        </div>
-      </div>
+        <?php } ?>
       <?php } ?>
-    <?php get_template_part('parts/bottom-logos'); ?>
+      <?php if ($form_disable=='yes') { ?>
+      <div class="bottom-padtop">
+        <?php get_template_part('parts/bottom-logos'); ?>
+      </div>
+      <?php } else { ?>
+        <?php get_template_part('parts/bottom-logos'); ?>
+      <?php } ?>
 		
 	</main>
 </div>

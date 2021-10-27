@@ -1412,6 +1412,12 @@ blockquote  {
   }
 }
 
+.bottom-padtop {
+  width: 100%;
+  float: left;
+  margin-top: 50px;
+}
+
 .page-title {
   font-family: $font_secondary;
   font-size: 30px;
@@ -2308,6 +2314,112 @@ body.page-template-page-flexible-content {
 
 body.home #bottom-contact-form {
   margin-bottom: 0;
+}
+
+.detailedForm {
+  .fcol {
+    width: 100%;
+  }
+  .fcol.left {
+    div.image {
+      width: 100%;
+      float: left;
+      position: relative;
+      @include backgroundImage(center);
+      background-color: #CCC;
+      img {
+        width: 100%;
+        height: auto;
+        float: left;
+      }
+      .logo-overlay {
+        width: 60%;
+        height: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+      }
+    }
+    div.text {
+      width: 100%;
+      float: left;
+      padding: 50px 0 0 20px;
+      @include tab {
+        padding: 50px 0 50px 20px;
+        @include flexgroup();
+        @include flexbox-justify(flex-end);
+      }
+    }
+  }
+  &.half {
+    .fcol {
+      @include tab {
+        width: 50%;
+      }
+    }
+    div.wrap {
+      width: 100%;
+      @include tab {
+        max-width: 576px;
+      }
+    }
+    .fcol.right {
+      padding-right: 20px;
+      padding-left: 20px;
+      @include tab {
+        padding-right: 0;
+        padding-left: 5vw;
+      }
+    }
+    &.image-right {
+      .flexwrap {
+        @include tab {
+          @include flexbox-direction(row-reverse);
+        }
+        .fcol.right {
+          padding-right: 20px;
+          @include tab {
+            padding-right: 5vw;
+            padding-left: 5vw;
+          }
+          @include desk {
+            padding-right: 0;
+          }
+          .wrap {
+            padding-top: 30px;
+            padding-bottom: 0;
+            @include tab {
+              float: right;
+              padding-top: 80px;
+              padding-bottom: 80px;
+              padding-right: 5vw;
+            }
+          }
+          .gform_footer.top_label {
+            margin-top: 20px;
+          }
+        }
+        .fcol.left {
+          .text {
+            @include tab {
+              padding-left: 0;
+              padding-right: 0;
+              @include flexbox-justify(flex-start);
+            }
+          }
+          .wrap {
+            @include tab {
+              float: left;
+            }
+          }
+        }
+      }
+    }
+  }
+  .gform_footer.top_label {
+    padding-top: 0!important;
+  }
 }
 
 /* Footer */

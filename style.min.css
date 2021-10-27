@@ -1466,6 +1466,7 @@ blockquote .quote-author{display:block;width:100%;color:#7ebd42;text-transform:u
 #bottom-logos,#home-logos{text-align:center;margin-bottom:30px}
 #bottom-logos span,#home-logos span{display:inline-block;margin:10px}
 #bottom-logos img,#home-logos img{width:100px;height:auto}
+.bottom-padtop{width:100%;float:left;margin-top:50px}
 .page-title{font-family:"Playfair Display",serif;font-size:30px;font-weight:400;line-height:1.2;margin:50px 0 20px;color:#18485b}
 .single-team .page-title{margin-top:0}
 .single-team .top{margin-top:50px;margin-bottom:50px}
@@ -1560,6 +1561,17 @@ svg.animate-logo .cross{opacity:0;-webkit-animation:logo_cross .5s linear forwar
 .page-template-page-child-expertise #bottom-logos{padding-top:50px}
 .default-template #main{min-height:25em}
 body.home #bottom-contact-form{margin-bottom:0}
+.detailedForm .fcol{width:100%}
+.detailedForm .fcol.left div.image{width:100%;float:left;position:relative;background-size:cover;background-position:center;background-repeat:no-repeat;background-color:#CCC}
+.detailedForm .fcol.left div.image img{width:100%;height:auto;float:left}
+.detailedForm .fcol.left div.image .logo-overlay{width:60%;height:auto;position:absolute;top:50%;left:50%;-webkit-transform:translateX(-50%) translateY(-50%);transform:translateX(-50%) translateY(-50%)}
+.detailedForm .fcol.left div.text{width:100%;float:left;padding:50px 0 0 20px}
+.detailedForm.half div.wrap{width:100%}
+.detailedForm.half .fcol.right{padding-right:20px;padding-left:20px}
+.detailedForm.half.image-right .flexwrap .fcol.right{padding-right:20px}
+.detailedForm.half.image-right .flexwrap .fcol.right .wrap{padding-top:30px;padding-bottom:0}
+.detailedForm.half.image-right .flexwrap .fcol.right .gform_footer.top_label{margin-top:20px}
+.detailedForm .gform_footer.top_label{padding-top:0 !important}
 .site-footer{width:100%;float:left;background:#efeded;color:#626365;font-size:15px}
 .site-footer .wrapper{padding-top:70px;padding-bottom:70px}
 .site-footer .footcol{width:100%;text-align:center}
@@ -1695,6 +1707,15 @@ body.home #bottom-contact-form{margin-bottom:0}
 .text-with-icons .twi{padding:0 30px;width:50%}
 .text-with-icons div.icon{text-align:left}
 body.page-template-page-flexible-content #bottom-contact-form.imageTextBlock .fcol.image div.img{width:50vw;left:0}
+.detailedForm .fcol.left div.text{padding:50px 0 50px 20px;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}
+.detailedForm.half .fcol{width:50%}
+.detailedForm.half div.wrap{max-width:576px}
+.detailedForm.half .fcol.right{padding-right:0;padding-left:5vw}
+.detailedForm.half.image-right .flexwrap{-webkit-box-orient:horizontal;-webkit-box-direction:reverse;-ms-flex-direction:row-reverse;flex-direction:row-reverse}
+.detailedForm.half.image-right .flexwrap .fcol.right{padding-right:5vw;padding-left:5vw}
+.detailedForm.half.image-right .flexwrap .fcol.right .wrap{float:right;padding-top:80px;padding-bottom:80px;padding-right:5vw}
+.detailedForm.half.image-right .flexwrap .fcol.left .text{padding-left:0;padding-right:0;-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start}
+.detailedForm.half.image-right .flexwrap .fcol.left .wrap{float:left}
 .site-footer .footcol{text-align:left}
 .site-footer .half .footcol.left{width:25%}
 .site-footer .half .footcol.right{width:75%}
@@ -1706,6 +1727,7 @@ body.page-template-page-flexible-content #bottom-contact-form.imageTextBlock .fc
 }@media(min-width:1200px){.image-text-block .itb-col.text .inner{padding-right:0}
 #homerow6.image-text-block .itb-col.text .inner{padding-left:0}
 .page404 #main{min-height:30em}
+.detailedForm.half.image-right .flexwrap .fcol.right{padding-right:0}
 }@media screen and (max-width:819px){.outerNav{max-width:320px;width:100%;height:100%;position:fixed;top:0;right:-400px;z-index:-999;background:#FFF;-webkit-transition:all ease .3s;transition:all ease .3s}
 .outerNav.active{right:0;z-index:100}
 .site-header .top-cta-btn{top:20px;left:25px}
