@@ -1392,6 +1392,12 @@ input.gform_button:hover,input[type="submit"]:hover{border-color:#18485b;backgro
 .section-with-icons .t1{font-family:"Playfair Display",serif;font-size:2em;font-weight:600;line-height:1.2;margin:0;color:#7ebd42}
 .section-with-icons .item{margin-bottom:30px}
 #homerow2.section-with-icons .content{text-align:center}
+#homerow2.section-with-icons div.icon a{display:inline-block}
+#homerow2.section-with-icons .col-icons .title a{text-decoration:none}
+#homerow2.section-with-icons div.item a{display:inline-block;cursor:pointer;color:#626365;text-decoration:none}
+#homerow2.section-with-icons div.item a div{-webkit-transition:all ease .3s;transition:all ease .3s}
+#homerow2.section-with-icons div.item a:hover{color:#0b5c98}
+#homerow2.section-with-icons div.item a:hover .t1{color:#0b5c98}
 #homerow3.section-with-icons{margin:80px 0}
 #homerow3.section-with-icons .flexwrap{margin-left:-30px;margin-right:-30px}
 #homerow3.section-with-icons .col-icons{width:100%;margin-bottom:40px}
@@ -1505,6 +1511,8 @@ body.page-template-page-child-expertise .bottom-padtop #bottom-logos{margin-top:
 .gform_footer{padding:0;margin:20px 0 5px}
 #bottom-contact-form{margin-bottom:50px}
 #bottom-contact-form .fcol.text{padding-top:50px;padding-bottom:50px}
+#bottom-contact-form.image-right.imageTextBlock .wrapper,#bottom-contact-form.image-right.imageTextBlock.reverse .wrapper{max-width:100%;padding-left:0;padding-right:0}
+#bottom-contact-form.image-right.imageTextBlock .flexwrap,#bottom-contact-form.image-right.imageTextBlock.reverse .flexwrap{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row}
 .page404 #main{min-height:20em}
 #sitemap-wrap{margin:30px 0}
 #sitemap-wrap ul{margin:0;padding:0;list-style:none}
@@ -1569,7 +1577,7 @@ body.home #bottom-contact-form{margin-bottom:0}
 .detailedForm .fcol.left div.image img{width:100%;height:auto;float:left}
 .detailedForm .fcol.left div.image .logo-overlay{width:60%;height:auto;position:absolute;top:50%;left:50%;-webkit-transform:translateX(-50%) translateY(-50%);transform:translateX(-50%) translateY(-50%)}
 .detailedForm .fcol.left div.text{width:100%;float:left;padding:50px 0 0 20px}
-.detailedForm.half div.wrap{width:100%}
+.detailedForm.half div.wrap{width:100%;padding-right:20px}
 .detailedForm.half .fcol.right{padding-right:20px;padding-left:20px}
 .detailedForm.half.image-right .flexwrap .fcol.right{padding-right:20px}
 .detailedForm.half.image-right .flexwrap .fcol.right .wrap{padding-top:30px;padding-bottom:0}
@@ -1670,6 +1678,8 @@ body.home #bottom-contact-form{margin-bottom:0}
 .imageTextBlock .fcol.text{padding-right:8vw}
 #bottom-contact-form .fcol.text{padding-top:85px;padding-bottom:85px}
 #bottom-contact-form.imageTextBlock .fcol.image div.img{width:50vw;left:0}
+#bottom-contact-form.image-right.imageTextBlock .flexwrap .fcol.text,#bottom-contact-form.image-right.imageTextBlock.reverse .flexwrap .fcol.text{padding-right:0;padding-left:5vw}
+#bottom-contact-form.image-right.imageTextBlock .flexwrap .fcol.text #contactform,#bottom-contact-form.image-right.imageTextBlock.reverse .flexwrap .fcol.text #contactform{max-width:580px;width:100%;padding-right:20px}
 #sitemap-wrap #sitemap{-webkit-column-count:2;-moz-column-count:2;column-count:2}
 #sitemap-wrap #sitemap>li{min-height:30px}
 .s1-text-image .fcol{width:100%;position:relative}
@@ -1713,7 +1723,7 @@ body.home #bottom-contact-form{margin-bottom:0}
 body.page-template-page-flexible-content #bottom-contact-form.imageTextBlock .fcol.image div.img{width:50vw;left:0}
 .detailedForm .fcol.left div.text{padding:50px 0 50px 20px;display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end}
 .detailedForm.half .fcol{width:50%}
-.detailedForm.half div.wrap{max-width:576px}
+.detailedForm.half div.wrap{padding-right:5vw;max-width:580px}
 .detailedForm.half .fcol.right{padding-right:0;padding-left:5vw}
 .detailedForm.half.image-right .flexwrap{-webkit-box-orient:horizontal;-webkit-box-direction:reverse;-ms-flex-direction:row-reverse;flex-direction:row-reverse}
 .detailedForm.half.image-right .flexwrap .fcol.right{padding-right:5vw;padding-left:5vw}
@@ -1730,7 +1740,9 @@ body.page-template-page-flexible-content #bottom-contact-form.imageTextBlock .fc
 .site-footer .social-media a{margin-left:0;margin-right:8px}
 }@media(min-width:1200px){.image-text-block .itb-col.text .inner{padding-right:0}
 #homerow6.image-text-block .itb-col.text .inner{padding-left:0}
+#bottom-contact-form.image-right.imageTextBlock .flexwrap .fcol.text #contactform,#bottom-contact-form.image-right.imageTextBlock.reverse .flexwrap .fcol.text #contactform{padding-right:0}
 .page404 #main{min-height:30em}
+.detailedForm.half div.wrap{padding-right:0}
 .detailedForm.half.image-right .flexwrap .fcol.right{padding-right:0}
 }@media screen and (max-width:819px){.outerNav{max-width:320px;width:100%;height:100%;position:fixed;top:0;right:-400px;z-index:-999;background:#FFF;-webkit-transition:all ease .3s;transition:all ease .3s}
 .outerNav.active{right:0;z-index:100}

@@ -107,6 +107,7 @@ $hero_class = ( ($large_text || $small_text) && $grid_images ) ? 'half':'full';
   $row2_col2_content = ( isset($row2_group['col2_content']) && $row2_group['col2_content'] ) ? $row2_group['col2_content'] : '';
   
   $row2_class = ( $row2_col1_content && $row2_col2_content ) ? 'columns-2':'columns-1';
+
   if( $row2_col1_content || $row2_col2_content ) { ?>
   <div id="homerow2" class="section-with-icons fw <?php echo $row2_class ?>">
     <div class="wrapper">
@@ -115,18 +116,33 @@ $hero_class = ( ($large_text || $small_text) && $grid_images ) ? 'half':'full';
         <?php for($i=1; $i<3; $i++) { ?>
           <?php  
           $row2_icon = ( isset($row2_group['col'.$i.'_icon']) && $row2_group['col'.$i.'_icon'] ) ? $row2_group['col'.$i.'_icon'] : '';
+          $iconLinkData = ( isset($row2_group['col'.$i.'_icon_link']) && $row2_group['col'.$i.'_icon_link'] ) ? $row2_group['col'.$i.'_icon_link'] : '';
+          $row2_icon_link = (isset($iconLinkData['url']) && $iconLinkData['url']) ? $iconLinkData['url'] : '';
+          $row2_icon_target = (isset($iconLinkData['target']) && $iconLinkData['target']) ? $iconLinkData['target'] : '_self';
+
           $row2_title = ( isset($row2_group['col'.$i.'_title']) && $row2_group['col'.$i.'_title'] ) ? $row2_group['col'.$i.'_title'] : '';
+          // $row2_title = (isset($rowInfo['title']) && $rowInfo['title']) ? $rowInfo['title'] : '';
+          // $row2_link = (isset($rowInfo['url']) && $rowInfo['url']) ? $rowInfo['url'] : '';
+          // $row2_target = (isset($rowInfo['target']) && $rowInfo['target']) ? $rowInfo['target'] : '_self';
           $row2_content = ( isset($row2_group['col'.$i.'_content']) && $row2_group['col'.$i.'_content'] ) ? $row2_group['col'.$i.'_content'] : '';
           ?>
           <?php if ($row2_content) { ?>
           <div class="col-icons wow fadeInUp <?php echo ($i==1) ? 'left':'right'; ?>">
             <div class="inner">
               <?php if ($row2_icon) { ?>
-               <div class="icon"><span style="background-image:url('<?php echo $row2_icon['url'] ?>')"></span></div> 
+                <?php if ($row2_icon_link) { ?>
+                  <div class="icon"><a href="<?php echo $row2_icon_link ?>" target="<?php echo $row2_icon_target ?>"><span style="background-image:url('<?php echo $row2_icon['url'] ?>')"></span></a></div> 
+                <?php } else { ?>
+                  <div class="icon"><span style="background-image:url('<?php echo $row2_icon['url'] ?>')"></span></div> 
+                <?php } ?>
               <?php } ?>
 
               <?php if ($row2_title) { ?>
-               <h3 class="title"><?php echo $row2_title ?></h3> 
+                <?php if ($row2_icon_link) { ?>
+                  <h3 class="title"><a href="<?php echo $row2_icon_link ?>" target="<?php echo $row2_icon_target ?>"><?php echo $row2_title ?></a></h3> 
+                <?php } else { ?>
+                  <h3 class="title"><?php echo $row2_title ?></h3> 
+                <?php } ?>
               <?php } ?>
 
               <?php if ($row2_content) { ?>
@@ -134,13 +150,23 @@ $hero_class = ( ($large_text || $small_text) && $grid_images ) ? 'half':'full';
                   <?php foreach ($row2_content as $r) { 
                     $title = $r['title'];
                     $text = $r['text'];
+                    $link = $r['link'];
+                    $pagelink = ($link) ? get_permalink($link->ID) : '';
+                    $link_open = '';
+                    $link_close = '';
+                    if($pagelink) {
+                      $link_open = '<a href="'.$pagelink.'">';
+                      $link_close = '</a>';
+                    }
                     ?>
                     <?php if ($title) { ?>
                     <div class="item">
+                      <?php echo $link_open ?>
                       <div class="t1"><?php echo $title ?></div>
                       <?php if ($text) { ?>
                       <div class="t2"><?php echo $text ?></div>
                       <?php } ?>
+                      <?php echo $link_close ?>
                     </div> 
                     <?php } ?>
                   <?php } ?>
@@ -210,7 +236,7 @@ $hero_class = ( ($large_text || $small_text) && $grid_images ) ? 'half':'full';
     <div class="flexwrap">
       <?php if ($row4_image) { ?>
       <div class="itb-col image wow fadeIn" style="background-image:url('<?php echo $row4_image['url'] ?>')">
-        <img src="<?php echo get_images_dir('rectangle.png') ?>" alt="">
+        <img src="<?php echo get_images_dir('square.png') ?>" alt="">
       </div>
       <?php } ?>
 
@@ -297,7 +323,7 @@ $hero_class = ( ($large_text || $small_text) && $grid_images ) ? 'half':'full';
     <div class="flexwrap">
       <?php if ($row6_image) { ?>
       <div class="itb-col image wow fadeInRight" style="background-image:url('<?php echo $row6_image['url'] ?>')">
-        <img src="<?php echo get_images_dir('rectangle.png') ?>" alt="">
+        <img src="<?php echo get_images_dir('square.png') ?>" alt="">
       </div>
       <?php } ?>
 
@@ -411,7 +437,7 @@ $hero_class = ( ($large_text || $small_text) && $grid_images ) ? 'half':'full';
     <div class="flexwrap">
       <?php if ($row9_image) { ?>
       <div class="itb-col image wow fadeIn" style="background-image:url('<?php echo $row9_image['url'] ?>')">
-        <img src="<?php echo get_images_dir('rectangle.png') ?>" alt="">
+        <img src="<?php echo get_images_dir('square.png') ?>" alt="">
       </div>
       <?php } ?>
 
@@ -497,7 +523,7 @@ if ( $team->have_posts() ) {
       <div class="flexwrap">
         <?php if ($row10_image) { ?>
         <div class="itb-col image wow fadeIn" style="background-image:url('<?php echo $row10_image['url'] ?>')">
-          <img src="<?php echo get_images_dir('rectangle.png') ?>" alt="">
+          <img src="<?php echo get_images_dir('square.png') ?>" alt="">
         </div>
         <?php } ?>
 
@@ -543,7 +569,7 @@ if ( $team->have_posts() ) {
     <div class="flexwrap">
       <?php if ($row11_image) { ?>
       <div class="itb-col image wow fadeIn" style="background-image:url('<?php echo $row11_image['url'] ?>')">
-        <img src="<?php echo get_images_dir('rectangle.png') ?>" alt="">
+        <img src="<?php echo get_images_dir('square.png') ?>" alt="">
       </div>
       <?php } ?>
 

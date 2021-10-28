@@ -24,7 +24,7 @@ if ( $form_image || ($form_title || $form_text) || $bottom_logos ) { ?>
       <?php if ($form_image) { ?>
       <div class="fcol image wow fadeIn">
         <div class="img parallax-image-block" style="background-image:url('<?php echo $form_image['url'] ?>')"></div>
-        <img src="<?php echo get_images_dir('rectangle.png') ?>" alt="" class="helper">
+        <img src="<?php echo get_images_dir('square.png') ?>" alt="" class="helper">
       </div>
       <?php } ?>
 

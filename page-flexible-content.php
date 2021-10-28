@@ -306,6 +306,9 @@ $counter = 1;
       $formImage = get_field("form_image"); 
       $form_disable = get_field("form_disable");
       $show_form = ($form_disable=='yes') ? false : true;
+      $formImagePosition = get_field("form_image_position"); 
+      $form_image_pos = ($formImagePosition) ? ' image-'.$formImagePosition:'';
+
       if($show_form) {
         if(empty($formImage)) {
           $formImage = get_field("global_form_image","option"); 
@@ -317,7 +320,7 @@ $counter = 1;
         }
         $formClass = (($gravityFormTitle || $gravityFormTopText) && $shortcode && do_shortcode($shortcode)) ? 'half':'full';
         if($gravityFormTitle || $gravityFormTopText || $shortcode || do_shortcode($shortcode) ) { ?>
-          <div id="bottom-contact-form" class="imageTextBlock reverse fw wow fadeIn <?php echo $class ?>">
+          <div id="bottom-contact-form" class="imageTextBlock reverse fw wow fadeIn <?php echo $class.$form_image_pos ?>">
             <div class="wrapper">
               <div class="flexwrap">
                 <?php if ($formImage) { ?>

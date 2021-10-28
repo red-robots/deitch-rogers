@@ -921,6 +921,29 @@ input.gform_button, input[type="submit"] {
       text-align: left;
     }
   }
+  div.icon a {
+    display: inline-block;
+  }
+  .col-icons {
+    .title a {
+      text-decoration: none;
+    }
+  }
+  div.item a {
+    display: inline-block;
+    cursor: pointer;
+    color: $color_text_main;
+    text-decoration: none;
+    div {
+      transition: all ease .3s;
+    }
+    &:hover {
+      color: $blue;
+      .t1 {
+        color: $blue;
+      }
+    }
+  }
 }
 
 #homerow3.section-with-icons {
@@ -1718,6 +1741,38 @@ body.page-template-page-child-expertise .bottom-padtop #bottom-logos{margin-top:
       left: 0;
     }
   }
+  &.image-right.imageTextBlock,
+  &.image-right.imageTextBlock.reverse  {
+    .wrapper {
+      max-width: 100%;
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .flexwrap {
+      @include flexbox-direction(row);
+      .fcol.text {
+        @include tab {
+          padding-right: 0;
+          padding-left: 5vw;
+        }
+        #contactform {
+          @include tab {
+            max-width: 580px;
+            width: 100%;
+            padding-right: 20px;
+          }
+          @include desk {
+            padding-right: 0;
+          }
+        }
+      }
+      .fcol.image div.img {
+        @include tab {
+          // left: -11.75vw;
+        }
+      }
+    }
+  }
 }
 
 
@@ -2367,8 +2422,13 @@ body.home #bottom-contact-form {
     }
     div.wrap {
       width: 100%;
+      padding-right: 20px;
       @include tab {
-        max-width: 576px;
+        padding-right: 5vw;
+        max-width: 580px;
+      }
+      @include desk {
+        padding-right: 0;
       }
     }
     .fcol.right {
