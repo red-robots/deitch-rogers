@@ -1246,6 +1246,13 @@ blockquote  {
   }
 }
 
+#homerow11 {
+  margin-top: 30px;
+  @include tab {
+    margin-top: 0;
+  }
+}
+
 .team-columns {
   margin: 80px 0;
   .flexwrap {
@@ -1725,10 +1732,20 @@ body.page-template-page-child-expertise .bottom-padtop #bottom-logos{margin-top:
 }
 
 #bottom-contact-form {
+  margin-top: 20px;
   margin-bottom: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
+  @include tab {
+    margin-top: 0;
+  }
+  @include tab {
+    padding-left: 0;
+    padding-right: 0;
+  }
   .fcol.text {
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 0;
+    padding-bottom: 0;
     @include tab {
       padding-top: 85px;
       padding-bottom: 85px;
@@ -1741,8 +1758,8 @@ body.page-template-page-child-expertise .bottom-padtop #bottom-logos{margin-top:
       left: 0;
     }
   }
-  &.image-right.imageTextBlock,
-  &.image-right.imageTextBlock.reverse  {
+  &.image-left.imageTextBlock,
+  &.image-left.imageTextBlock.reverse  {
     .wrapper {
       max-width: 100%;
       padding-left: 0;
