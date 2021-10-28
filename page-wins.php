@@ -415,5 +415,14 @@ $counter = 1;
 		
 	</main>
 </div>
+<script type="text/javascript">
+jQuery(document).ready(function($){
+  if( $("#cpt-feeds .more-link").length ) {
+    $("#cpt-feeds .more-link").each(function(){
+      $(this).wrapAll('<div class="morediv"></div>');
+    });
+  }
+});
+</script>
 <?php
 get_footer();
