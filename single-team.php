@@ -98,6 +98,11 @@ get_header(); ?>
       </div>
 
 		<?php endwhile; ?>
+
+    <?php 
+      $show_logo = true;
+      include( locate_template('parts/home-contact-form.php') ); 
+    ?>
 	</main><!-- #main -->
 </div><!-- #primary -->
 
