@@ -89,7 +89,7 @@ $counter = 1;
         <div id="cpt-feeds" class="s2-regular-text full-text-block wow fadeInUp">
           <div class="wrapper">
           <?php while ( $wins->have_posts() ) : $wins->the_post(); ?>
-            <article id="post-<?php the_ID(); ?>">
+            <article id="post-<?php the_ID(); ?>" class="post-entry wow fadeIn">
               <h3 class="post-title"><?php the_title() ?></h1>
               <div class="post-excerpt"><?php the_content('Read More &rarr;'); ?></div>
             </article>
