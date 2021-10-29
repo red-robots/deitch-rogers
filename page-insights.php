@@ -80,7 +80,7 @@ $counter = 1;
       $paged = ( get_query_var( 'pg' ) ) ? absint( get_query_var( 'pg' ) ) : 1;
       $args = array(
         'posts_per_page'   => 10,
-        'post_type'        => 'insights',
+        'post_type'        => 'post',
         'post_status'      => 'publish',
         'paged'            => $paged
       );
@@ -91,7 +91,14 @@ $counter = 1;
           <?php while ( $wins->have_posts() ) : $wins->the_post(); ?>
             <article id="post-<?php the_ID(); ?>" class="post-entry wow fadeIn">
               <h3 class="post-title"><?php the_title() ?></h1>
-              <div class="post-excerpt"><?php the_content('Read More &rarr;'); ?></div>
+              <div class="post-excerpt">
+                <?php if ( get_the_content() ) { ?>
+                 <?php echo get_excerpt(get_the_content(),105); ?> 
+                <?php } ?>
+                <div class="morediv">
+                  <a href="<?php echo get_permalink() ?>" class="more-link">Read More &rarr;</a>
+                </div>
+              </div>
             </article>
           <?php endwhile; wp_reset_postdata(); ?>
           </div>

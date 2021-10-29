@@ -297,6 +297,40 @@ function getGravityFormList() {
 }
 
 
+function custom_excerpt_more( $excerpt ) {
+    return '...';
+}
+add_filter( 'excerpt_more', 'custom_excerpt_more' );
+
+//change the number for the length you want
+function custom_excerpt_length( $length ) {
+    return 150;
+}
+add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
+
+function get_excerpt($text,$limit=100) {
+    $text = get_the_content('');
+    $text = apply_filters('the_content', $text);
+    $text = str_replace('\]\]\>', ']]>', $text);
+    $text = preg_replace('@<script[^>]*?>.*?</script>@si', '', $text);
+
+    /* This gets rid of all empty p tags, even if they contain spaces or &nbps; inside. */
+    $text = preg_replace("/<p[^>]*>(?:\s|&nbsp;)*<\/p>/", '', $text); 
+
+    /* Get rid of <img> tag */
+    $text = preg_replace("/<img[^>]+\>/i", "", $text); 
+    $text = strip_tags($text,"<p><a>");
+    $excerpt_length = $limit;
+    $words = explode(' ', $text, $excerpt_length + 1);
+    if (count($words)> $excerpt_length) {
+            array_pop($words);
+            array_push($words, '...');
+            $text = implode(' ', $words);
+            $text = force_balance_tags( $text );
+    }
+ 
+    return $text;
+}   
 
 
 /* Update Peope post type */
