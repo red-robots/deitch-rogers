@@ -544,6 +544,12 @@ input.gform_button, input[type="submit"] {
     }
     #site-navigation {
       margin-top: 115px;
+      #primary-menu {
+        a, a * {
+          transition: none!important;
+        }
+      }
+      
       #primary-menu > li {
         width: 100%;
         border-bottom: 1px dotted #d4d4d4;
@@ -553,10 +559,11 @@ input.gform_button, input[type="submit"] {
         font-size: 1em;
         padding: 15px 20px;
       }
+      #primary-menu > li:hover > ul,
       #primary-menu > li > ul {
         display: none;
         height: auto;
-        max-height: 600px;
+        max-height: unset;
         opacity: 1;
         padding: 5px 15px 20px 35px !important;
         visibility: visible;
@@ -569,6 +576,13 @@ input.gform_button, input[type="submit"] {
           font-size: 0.9em;
           padding: 6px 0;
         }
+        // &.open {
+        //   height: auto;
+        //   max-height: 600px;
+        //   opacity: 1;
+        //   visibility: visible;
+        //   padding: 5px 15px 20px 35px !important;
+        // }
       }
     }  
     .menu-overlay {

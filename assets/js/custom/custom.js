@@ -45,7 +45,7 @@ jQuery(document).ready(function ($) {
   //     } 
   //   }
   // });
-  
+
 
   // $("#primary-menu a").each(function(){
   //   if( $(this).attr("href")=='#logo' ) {
@@ -118,7 +118,8 @@ jQuery(document).ready(function ($) {
       });
       $(document).on("click","a.parentMenu",function(e){
         e.preventDefault();
-        $(this).next().slideToggle();
+        $(this).next().slideToggle(100);
+        //$(this).next().toggleClass('open');
       });
     }
   }

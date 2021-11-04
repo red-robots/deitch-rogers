@@ -108,7 +108,7 @@ jQuery(document).ready(function ($) {
       });
       $(document).on("click", "a.parentMenu", function (e) {
         e.preventDefault();
-        $(this).next().slideToggle();
+        $(this).next().slideToggle(100); //$(this).next().toggleClass('open');
       });
     }
   }

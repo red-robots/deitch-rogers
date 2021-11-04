@@ -1761,10 +1761,11 @@ body.page-template-page-flexible-content #bottom-contact-form.imageTextBlock .fc
 .outerNav.active{right:0;z-index:100}
 .site-header .top-cta-btn{top:20px;left:25px}
 .site-header #site-navigation{margin-top:115px}
+.site-header #site-navigation #primary-menu a,.site-header #site-navigation #primary-menu a *{-webkit-transition:none !important;transition:none !important}
 .site-header #site-navigation #primary-menu>li{width:100%;border-bottom:1px dotted #d4d4d4}
 .site-header #site-navigation #primary-menu>li>a{display:block;font-size:1em;padding:15px 20px}
-.site-header #site-navigation #primary-menu>li>ul{display:none;height:auto;max-height:600px;opacity:1;padding:5px 15px 20px 35px !important;visibility:visible;width:100%;position:relative;z-index:10;-webkit-transition:none !important;transition:none !important;-webkit-transform:none !important;transform:none !important}
-.site-header #site-navigation #primary-menu>li>ul a{font-size:.9em;padding:6px 0}
+.site-header #site-navigation #primary-menu>li:hover>ul,.site-header #site-navigation #primary-menu>li>ul{display:none;height:auto;max-height:unset;opacity:1;padding:5px 15px 20px 35px !important;visibility:visible;width:100%;position:relative;z-index:10;-webkit-transition:none !important;transition:none !important;-webkit-transform:none !important;transform:none !important}
+.site-header #site-navigation #primary-menu>li:hover>ul a,.site-header #site-navigation #primary-menu>li>ul a{font-size:.9em;padding:6px 0}
 .site-header .menu-overlay{display:none;width:100%;height:100%;position:fixed;top:0;left:0;z-index:90;background:rgba(0,0,0,0.75);-webkit-animation-duration:1s;animation-duration:1s}
 body.mobile-menu-open .site-header .menu-overlay{display:block;-webkit-animation-name:"fadeIn";animation-name:"fadeIn"}
 body.mobile-menu-open .mobile-menu{position:fixed;top:15px;right:10px}
