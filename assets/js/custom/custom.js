@@ -32,25 +32,26 @@ jQuery(document).ready(function ($) {
   });
 
   /* Pop bubble when clicking a menu */
-  $("#primary-menu > li > a").on("click",function(e){
-    e.preventDefault();
-    var target = $(this);
-    var link = $(this).attr("href");
-    if( link ) {
-      if (location.href.indexOf("http") != -1) {
-        $(this).addClass('pop');
-        setTimeout(function(){
-          window.location = link;
-        },300)
-      } 
-    }
-  });
+  // $("#primary-menu > li > a").on("click",function(e){
+  //   e.preventDefault();
+  //   var target = $(this);
+  //   var link = $(this).attr("href");
+  //   if( link ) {
+  //     if (location.href.indexOf("http") != -1) {
+  //       $(this).addClass('pop');
+  //       setTimeout(function(){
+  //         window.location = link;
+  //       },300)
+  //     } 
+  //   }
+  // });
+  
 
-  $("#primary-menu a").each(function(){
-    if( $(this).attr("href")=='#logo' ) {
-      $(this).parents("li").addClass("logo-area");
-    }
-  }); 
+  // $("#primary-menu a").each(function(){
+  //   if( $(this).attr("href")=='#logo' ) {
+  //     $(this).parents("li").addClass("logo-area");
+  //   }
+  // }); 
 
 
   $('[data-fancybox]').fancybox({
