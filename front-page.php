@@ -72,8 +72,8 @@ $hero_class = ( ($large_text || $small_text) && $grid_images ) ? 'half':'full';
                 <?php echo $open_link ?>
                   <span class="front img" style="background-image:url('<?php echo $front_img['url'] ?>')">
                     <?php if ($has_logo) { ?>
-                      <span class="logo-white">
-                        <?php get_template_part('parts/logo-white') ?>
+                      <span class="logo-tagline">
+                        <?php get_template_part('parts/logo-tagline') ?>
                       </span>
                     <?php } ?>
                   </span>

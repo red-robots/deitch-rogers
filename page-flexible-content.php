@@ -92,60 +92,182 @@ $counter = 1;
           $image_position = get_sub_field("image_position");
           $pos = ($image_position) ? ' image-'.$image_position : "";
           $buttons = get_sub_field("buttons");
-          $section =  ($image && ($title || $short_description) ) ? ' half':' full'; 
-          if( $image || ($title || $short_description) ) { 
-          $oddeven = ($n % 2 == 0) ? 'even':'odd'; 
-          $first = ($n==1) ? ' first':'';
-          ?>
-          <div class="image-text-section flexcontent <?php echo $oddeven.$section.$first.$pos ?>">
-            <?php if ($image) { ?>
-            <div class="flexwrap full">
-              <div class="fcol image parallax-image-block wow fadeIn" style="background-image:url('<?php echo $image['url'] ?>')">
-              </div>  
-            </div>
-            <?php } ?>
-            <div class="text-content wrapper">
-              <div class="flexwrap">
+          $frame_images = get_sub_field('frame_images');
+          $frame_type = ( get_sub_field('frame_type') ) ? get_sub_field('frame_type') : 'frame1';
+          $mirror_image_url = ($image) ? $image['url'] : '';
+          
+          if( ($image || $frame_images) || ($title || $short_description) ) { 
+            $oddeven = ($n % 2 == 0) ? 'even':'odd'; 
+            $first = ($n==1) ? ' first':'';
+            
+            $maxImages = 4;
+            $frameNumImages['frame1'] = 1;
+            $frameNumImages['frame2'] = 2;
+            $frameNumImages['frame3'] = 3;
+            $frameNumImages['frame4'] = 4;
+            $frameNumImages['frame5'] = 4;
+            
+            $count_images = ($frame_images) ? count($frame_images) : 0;
+            
+            if( $count_images > $maxImages ) {
+              foreach($frame_images as $k=>$v) {
+                if($k>=$frameNumImages[$frame_type]) {
+                  unset($frame_images[$k]);
+                }
+              }
+            }
 
+            if($count_images==1) {
+              $frame_type = 'frame1';
+            }
+            else if($count_images==2) {
+              $frame_type = 'frame2';
+            }
+            else if( $frame_type=='frame2' && $count_images>2 ) {
+              $frame_type = 'frame2';
+              if($frame_images) {
+                foreach($frame_images as $k=>$v) {
+                  if($k>=$frameNumImages[$frame_type]) {
+                    unset($frame_images[$k]);
+                  }
+                }
+              }
+            }
+            else if( ($frame_type=='frame4' || $frame_type=='frame5') && $count_images<$maxImages ) {
+              $frame_type = 'frame3';
+              if($frame_images) {
+                foreach($frame_images as $k=>$v) {
+                  if($k>=$frameNumImages[$frame_type]) {
+                    unset($frame_images[$k]);
+                  }
+                }
+              }
+            }
+
+            if($frame_type!='frame1' && $frame_images ) {
+              $mirror_image_url = ($frame_images) ? $frame_images[0]['url'] : '';
+            }
+
+            $section =  ($mirror_image_url && ($title || $short_description) ) ? ' half':' full'; 
+          
+            ?>
+            <div class="image-text-section has-collage-field flexcontent <?php echo $oddeven.$section.$first.$pos ?> type_<?php echo $frame_type ?>">
+
+              <?php if($frame_type=='frame1') {  ?>
+                
                 <?php if ($image) { ?>
-                <div class="fcol image hidden" style="background-image:url('<?php echo $image['url'] ?>')">
-                  <img src="<?php echo get_images_dir('square.png') ?>" alt="" class="img-helper">
+                <div class="flexwrap full">
+                  <div class="fcol image parallax-image-block wow fadeIn" style="background-image:url('<?php echo $image['url'] ?>')">
+                  </div>  
                 </div>
+                <?php } else { ?>
+
+                  <?php if ($frame_images) { ?>
+                  <div class="flexwrap full">
+                    <div class="fcol image parallax-image-block wow fadeIn" style="background-image:url('<?php echo $frame_images[0]['url'] ?>')">
+                    </div>  
+                  </div>
+                  <?php } ?>
+
                 <?php } ?>
 
-                <?php if ($title || $short_description) { ?>
-                  <div class="fcol text wow fadeInUp">
-                    <div class="info">
-                      <?php if ($title) { ?>
-                        <h2 class="h2"><?php echo $title ?></h3>
-                      <?php } ?>
-                      <?php if ($short_description) { ?>
-                        <?php echo anti_email_spam($short_description); ?>
-                      <?php } ?>
+              <?php } else { ?>
 
-                      <?php if ($buttons) { ?>
-                        <div class="button-group">
-                          <?php foreach ($buttons as $b) { 
-                            $btn = $b['button'];
-                            $btnTitle = (isset($btn['title']) && ($btn['title'])) ? ($btn['title']) : '';
-                            $btnLink = (isset($btn['url']) && ($btn['url'])) ? ($btn['url']) : '';
-                            $btnTarget = (isset($btn['target']) && ($btn['target'])) ? ($btn['target']) : '_self';
-                            $style = $b['button_style'];
-                            $btnClass = ($style=='outline') ? 'btn-outline':'btn-green';
-                            if( $btnTitle && $btnLink ) { ?>
-                              <a href="<?php echo $btnLink ?>" target="<?php echo $btnTarget ?>" class="btn <?php echo $btnClass ?>"><?php echo $btnTitle ?></a>
+                <?php if ($frame_images) { ?>
+
+                  <?php if ($count_images==1) { ?>
+                  <div class="flexwrap full">
+                    <div class="fcol image parallax-image-block wow fadeIn" style="background-image:url('<?php echo $frame_images[0]['url'] ?>')">
+                    </div>  
+                  </div>
+                  <?php } else { ?>
+
+                  <div id="framedImages" class="flexwrap full multiple-images count_<?php echo $count_images ?> <?php echo $frame_type ?>">
+                    <div class="collage">
+                      <div class="images">
+                      <?php $ctr=1; foreach ($frame_images as $img) { 
+                        $image_helper = get_images_dir('square2.gif');
+                        ?>
+                        <?php if ($frame_type=='frame3') { ?>
+                            
+                            <?php if ($ctr==1) { ?>
+                              <di class="col1">
+                                <div class="image-item img<?php echo $ctr ?>" id="imgid<?php echo $img['ID'] ?>" style="background-image:url('<?php echo $img['url'] ?>')">
+                                  <img src="<?php echo $image_helper ?>" alt="" />
+                                </div>
+                              </di>
+                              <div class="col2">
                             <?php } ?>
-                          <?php } ?>
-                        </div>
-                      <?php } ?>
-                    </div>
-                  </div>  
 
+                            <?php if ($ctr>1) { ?>
+                            <div class="image-item img<?php echo $ctr ?>" id="imgid<?php echo $img['ID'] ?>" style="background-image:url('<?php echo $img['url'] ?>')">
+                              <img src="<?php echo $image_helper ?>" alt="" />
+                            </div>
+                            <?php } ?>
+
+                            <?php if ($ctr==$count_images) { ?>
+                              </div>
+                            <?php } ?>
+
+                        <?php } else { ?>
+                          <div class="image-item img<?php echo $ctr ?>" id="imgid<?php echo $img['ID'] ?>" style="background-image:url('<?php echo $img['url'] ?>')">
+                            <img src="<?php echo $image_helper ?>" alt="" />
+                          </div>
+                        <?php } ?>
+
+                      <?php $ctr++; } ?>
+                      </div>
+                    </div>
+                  </div>
+
+                  <?php } ?>
                   
                 <?php } ?>
+
+              <?php } ?>
+
+              <div class="text-content text-content-helper wrapper">
+                <div class="flexwrap">
+
+                  <?php if ($mirror_image_url) { ?>
+                  <div class="fcol mirror-image image hidden" style="background-image:url('<?php echo $mirror_image_url ?>')">
+                    <img src="<?php echo get_images_dir('square.png') ?>" alt="" class="img-helper">
+                  </div>
+                  <?php } ?>
+
+                  <?php if ($title || $short_description) { ?>
+                    <div class="fcol text wow fadeInUp">
+                      <div class="info">
+                        <?php if ($title) { ?>
+                          <h2 class="h2"><?php echo $title ?></h3>
+                        <?php } ?>
+                        <?php if ($short_description) { ?>
+                          <?php echo anti_email_spam($short_description); ?>
+                        <?php } ?>
+
+                        <?php if ($buttons) { ?>
+                          <div class="button-group">
+                            <?php foreach ($buttons as $b) { 
+                              $btn = $b['button'];
+                              $btnTitle = (isset($btn['title']) && ($btn['title'])) ? ($btn['title']) : '';
+                              $btnLink = (isset($btn['url']) && ($btn['url'])) ? ($btn['url']) : '';
+                              $btnTarget = (isset($btn['target']) && ($btn['target'])) ? ($btn['target']) : '_self';
+                              $style = $b['button_style'];
+                              $btnClass = ($style=='outline') ? 'btn-outline':'btn-green';
+                              if( $btnTitle && $btnLink ) { ?>
+                                <a href="<?php echo $btnLink ?>" target="<?php echo $btnTarget ?>" class="btn <?php echo $btnClass ?>"><?php echo $btnTitle ?></a>
+                              <?php } ?>
+                            <?php } ?>
+                          </div>
+                        <?php } ?>
+                      </div>
+                    </div>  
+
+                    
+                  <?php } ?>
+                </div>
               </div>
             </div>
-          </div>
           <?php $n++; $counter++; } ?>
         <?php }
 

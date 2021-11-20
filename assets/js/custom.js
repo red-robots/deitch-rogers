@@ -8,6 +8,16 @@
 jQuery(document).ready(function ($) {
   var site_url = $("#site-logo a").attr("href");
   var site_logo = $("#site-logo a").html();
+  $(window).scroll(function () {
+    var nav = $('#masthead');
+    var top = 200;
+
+    if ($(window).scrollTop() >= top) {
+      nav.addClass('fixed');
+    } else {
+      nav.removeClass('fixed');
+    }
+  });
   $("#primary-menu li.menu-item-has-children").hover(function () {
     $("#navOverlay").addClass('active');
   }, function () {

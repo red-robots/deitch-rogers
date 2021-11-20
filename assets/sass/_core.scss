@@ -263,20 +263,23 @@ input.gform_button, input[type="submit"] {
 
 .site-header {
   background-color: #FFF;
-  // margin-top: 0;
-  // padding-bottom: 35px;
-  position: relative;
-  z-index: 25;
+  position: fixed;
+  z-index: 100;
+  width: 100%;
   height: 70px;
+  transition: all ease .3s;
   @include tab {
     height: auto;
-    padding-top: 20px;
+    min-height:70px;
+    padding-top: 18px;
+    &.fixed {
+      box-shadow: 0 0px 10px rgba(0,0,0,0.1);
+    }
   }
   .wrapper {
-    top: 9px;
+    top: 5px;
     @include tab {
       top: 0;
-      // max-width: 98%;
     }
     .flexwrap {
       @include flexbox-align-items(center);
@@ -291,7 +294,7 @@ input.gform_button, input[type="submit"] {
     color: #FFF;
     position: absolute;
     @include tab {
-      top: 2px;
+      top: 7px;
       right: 0;
     }
     &:hover {
@@ -326,6 +329,7 @@ input.gform_button, input[type="submit"] {
   float: left;
   position: relative;
   top: 8px;
+  overflow: hidden;
   @include tab {
     width: 220px;
     top: -9px;
@@ -774,6 +778,16 @@ input.gform_button, input[type="submit"] {
           top: 50%;
           transform: translateY(-50%);
         }
+        .logo-tagline {
+          display: inline-block;
+          position: relative;
+          max-width: 80%;
+          width: 100%;
+          height: auto;
+          float: none;
+          top: 50%;
+          transform: translateY(-50%);
+        }
       }
       &.back {
         transform: scale(1.01) rotateY(-180deg);
@@ -810,6 +824,85 @@ input.gform_button, input[type="submit"] {
       height: auto;
       float: left;
     }
+  }
+}
+
+#logo-tagline-svg {
+  // animation: zoomInQuick 0.6s linear forwards;
+  // animation-delay: 5s;
+  
+  /* DEITCH + ROGERS BORDER */
+  #logo_el.cls-1 {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: dash 0.8s linear forwards;
+    animation-delay: 2s;
+  }
+  /* DEITCH + ROGERS */
+  .cls-2 {
+    // opacity: 0;
+    // animation: opacity_effect 0.8s ease-in-out forwards;
+    fill-opacity: 0;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    stroke: #FFF;
+    animation: logo 3s ease-in-out forwards;
+    animation-delay: 1s;
+  }
+  /* CRIME VICTIM */
+  .cls-22 {
+    opacity: 0;
+    animation: opacity_effect 1.2s ease-in-out forwards;
+    animation-delay: 2.5s;
+  }
+  /* ATTORNEYS */
+  .cls-23 {
+    opacity: 0;
+    animation: bottomTopEffect 0.5s linear forwards;
+    animation-delay: 3s;
+  }
+
+  /* CRIME VICTIM BORDER */
+  .clsBox {
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: dash 1s ease forwards;
+    animation-delay: 4s;
+  }
+}
+
+@keyframes zoomInQuick {
+  0% {
+    opacity: 0.2;
+    transform:scale(0.8);
+  }
+  50% {
+    opacity: 0.5;
+    transform:scale(1.2);
+  }
+  100% {
+    opacity: 1;
+    transform:scale(1);
+  }
+}
+
+@keyframes bottomTopEffect {
+  from {
+    opacity: 0;
+    transform: translateX(-28px) translateY(50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(-28px) translateY(-15px);
+  }
+}
+
+@keyframes opacity_effect {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 
@@ -867,6 +960,10 @@ input.gform_button, input[type="submit"] {
     width: auto;
     opacity: 1;
   }
+}
+
+.site-content {
+  padding-top: 70px;
 }
 .h1,.h2 {
   font-family: $font_secondary;
@@ -2580,6 +2677,154 @@ body.home #bottom-contact-form {
     padding: 2px 3px;
     margin: 2px 3px;
     font-weight: 500;
+  }
+}
+
+#framedImages {
+  .collage {
+    width: 100%;
+    height: 100%;
+    float: left;
+    @include tab {
+      width: 50%;
+    }
+  }
+  .images {
+    width: 100%;
+    height: 100%;
+    @include flexgroup();
+    margin: 0 0;
+    padding: 0 0;
+    list-style: none;
+  }
+  .images .image-item {
+    width: 100%;
+    float: left;
+    background-color:#CCC;
+    @include backgroundImage(center);
+    img {
+      width: 100%;
+      height: auto;
+      float: left;
+      visibility: hidden;
+    }
+  }
+  &.frame2 {
+    .images {
+      .image-item {
+        width: 100%;
+        @include tab {
+          width: 50%;
+        }
+      }
+    }
+  }
+  &.frame3 {
+    .col1,.col2 {
+      height: 100%;
+    }
+    .images {
+      .image-item {
+        width: 100%;
+      }
+      .col1 {
+        width: 100%;
+        @include tab {
+          width: 50%;
+        }
+      }
+      .col2 {
+        width: 100%;
+        @include tab {
+          width: 50%;
+        }
+        .img2,.img3 {
+          height: 50%;
+        }
+      }
+    }
+  }
+  &.frame4 {
+    .image-item {
+      width: 50%;
+      @include tab {
+        width: 50%;
+        height: 50%;
+      }
+    }
+  }
+  &.frame5 {
+    .image-item {
+      width: 50%;
+      @include tab {
+        height: 50%;
+        &:nth-child(1) {
+          width: 35%;
+        }
+        &:nth-child(2) {
+          width: 65%;
+        }
+        &:nth-child(3) {
+          width: 65%;
+        }
+        &:nth-child(4) {
+          width: 35%;
+        }
+      }
+    }
+  }
+}
+
+.image-text-section.has-collage-field {
+  margin-bottom: 80px;
+  overflow: hidden;
+  &.image-right {
+    #framedImages .collage {
+      @include tab {
+        float: right;
+      }
+    }
+    .text-content .fcol.text {
+      padding-left: 20px;
+      padding-right: 20px;
+      @include tab {
+        padding-left: 0;
+        padding-right: 5vw;
+      }
+    }
+    @include tab {
+      .text-content {
+        .flexwrap {
+          @include flexbox-direction(row-reverse);
+        }
+      }
+      #framedImages .collage .images {
+        float: right;
+      }
+    }
+  }
+  @media screen and (max-width: $tabwidth - 1px) {
+    #framedImages {
+      display: block;
+      width: 100%;
+      float: left;
+      position: relative;
+    }
+    .text-content.wrapper {
+      width: 100%;
+      float: left;
+      .image.mirror-image {
+        display: none;
+      }
+    }
+  }
+  &.type_frame5 {
+    .text-content {
+      padding: 40px 30px 10px;
+      @include tab {
+        padding: 10vh 0;
+      }
+    }
   }
 }
 
