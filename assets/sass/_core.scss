@@ -268,13 +268,15 @@ input.gform_button, input[type="submit"] {
   width: 100%;
   height: 70px;
   transition: all ease .3s;
+  &.fixed {
+    top: 0;
+    left: 0;
+    box-shadow: 0 0px 10px rgba(0,0,0,0.1);
+  }
   @include tab {
     height: auto;
     min-height:70px;
     padding-top: 18px;
-    &.fixed {
-      box-shadow: 0 0px 10px rgba(0,0,0,0.1);
-    }
   }
   .wrapper {
     top: 5px;
@@ -306,6 +308,13 @@ input.gform_button, input[type="submit"] {
   }
 }
 
+body.logged-in.admin-bar {
+  @include tab {
+    .site-header.fixed {
+      top: 32px;
+    }
+  }
+}
 #navOverlay {
   position: fixed;
   top: 0;

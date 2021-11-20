@@ -1318,6 +1318,7 @@ input.gform_button:hover,input[type="submit"]:hover{border-color:#18485b;backgro
 .button-group{margin-top:30px;text-align:center}
 .button-group .btn{margin:0 10px 20px;width:80%;text-align:center}
 .site-header{background-color:#FFF;position:fixed;z-index:100;width:100%;height:70px;-webkit-transition:all ease .3s;transition:all ease .3s}
+.site-header.fixed{top:0;left:0;-webkit-box-shadow:0 0 10px rgba(0,0,0,0.1);box-shadow:0 0 10px rgba(0,0,0,0.1)}
 .site-header .wrapper{top:5px}
 .site-header .wrapper .flexwrap{-webkit-box-align:center;-ms-flex-align:center;align-items:center}
 .site-header .top-cta-btn{display:inline-block;text-decoration:none;padding:5px 30px;background:#7ebd42;border-radius:200px;color:#FFF;position:absolute}
@@ -1643,9 +1644,9 @@ body.home #bottom-contact-form{margin-bottom:0}
 .button-group{text-align:left}
 .button-group .btn{width:auto;margin-left:0;margin-right:1vw;margin-bottom:0}
 .site-header{height:auto;min-height:70px;padding-top:18px}
-.site-header.fixed{-webkit-box-shadow:0 0 10px rgba(0,0,0,0.1);box-shadow:0 0 10px rgba(0,0,0,0.1)}
 .site-header .wrapper{top:0}
 .site-header .top-cta-btn{top:7px;right:0}
+body.logged-in.admin-bar .site-header.fixed{top:32px}
 #navOverlay.active{display:block;-webkit-animation-name:fadeIn;animation-name:fadeIn}
 #site-logo{width:220px;top:-9px}
 #site-navigation{display:inline-block;margin-left:30px;position:relative}
