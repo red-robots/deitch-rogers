@@ -320,6 +320,7 @@ $counter = 1;
         }
         $formClass = (($gravityFormTitle || $gravityFormTopText) && $shortcode && do_shortcode($shortcode)) ? 'half':'full';
         if($gravityFormTitle || $gravityFormTopText || $shortcode || do_shortcode($shortcode) ) { ?>
+          <div id="contact-form"></div>
           <div id="bottom-contact-form" class="imageTextBlock reverse fw wow fadeIn <?php echo $class.$form_image_pos ?>">
             <div class="wrapper">
               <div class="flexwrap">

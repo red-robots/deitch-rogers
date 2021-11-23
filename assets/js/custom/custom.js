@@ -136,11 +136,15 @@ jQuery(document).ready(function ($) {
 
   /* Smooth Anchor Scroll */
   // Select all links with hashes
-  $('a[href*="#"]')
-    // Remove links that don't actually link to anything
-    .not('[href="#"]')
-    .not('[href="#0"]')
-    .click(function(event) {
+
+  if(window.location.hash) {
+    let urlHash = window.location.hash;
+    if( $(urlHash).length ) {
+      do_smooth_anchor ( $(urlHash) );
+    }
+  }
+
+  $('a[href*="#"]').not('[href="#"]').not('[href="#0"]').click(function(event) {
       // On-page links
       if (
         location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
@@ -154,24 +158,40 @@ jQuery(document).ready(function ($) {
         if (target.length) {
           // Only prevent default if animation is actually gonna happen
           event.preventDefault();
-          var offset = $('.site-header').height();
-          $('html, body').animate({
-            scrollTop: target.offset().top - offset
-          }, 1000, function() {
-            // Callback after animation
-            // Must change focus!
-            var $target = $(target);
-            $target.focus();
-            if ($target.is(":focus")) { // Checking if the target was focused
-              return false;
-            } else {
-              $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
-              $target.focus(); // Set focus again
-            };
-          });
+          do_smooth_anchor (target);
+          // var offset = $('#site-logo').height() + 60;
+          // $('html, body').animate({
+          //   scrollTop: target.offset().top - offset
+          // }, 1000, function() {
+          //   // Callback after animation
+          //   // Must change focus!
+          //   var $target = $(target);
+          //   $target.focus();
+          //   if ($target.is(":focus")) { // Checking if the target was focused
+          //     return false;
+          //   } else {
+          //     $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+          //     $target.focus(); // Set focus again
+          //   };
+          // });
         }
       }
     });
+
+    function do_smooth_anchor (target) {
+      var offset = $('#site-logo').height() + 60;
+      $('html, body').animate({
+        scrollTop: target.offset().top - offset
+      }, 1000, function() {
+        target.focus();
+        if (target.is(":focus")) { // Checking if the target was focused
+          return false;
+        } else {
+          target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
+          target.focus(); // Set focus again
+        };
+      });
+    }
 
     /* PARALLAX */
     /** change value here to adjust parallax level */

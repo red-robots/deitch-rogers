@@ -341,77 +341,8 @@ $counter = 1;
 
 
     <?php /* Contact Form */ ?>
-    <?php 
-      $gravityFormTitle = get_field("global_form_title","option"); 
-      $gravityFormTopText = get_field("global_form_text","option"); 
-      $gravityFormId = get_field("global_the_form","option"); 
-      $gravityFormBottomText = get_field("global_disclosure","option"); 
-      $formImage = get_field("form_image"); 
-      $form_disable = get_field("form_disable");
-      $show_form = ($form_disable=='yes') ? false : true;
-      $formImagePosition = get_field("form_image_position"); 
-      $form_image_pos = ($formImagePosition) ? ' image-'.$formImagePosition:'';
-
-      if($show_form) {
-        if(empty($formImage)) {
-          $formImage = get_field("global_form_image","option"); 
-        }
-        //[gravityform id="1" title="false" description="false" ajax="true"]
-        $shortcode = '';
-        if($gravityFormId) {
-          $shortcode = '[gravityform id="'.$gravityFormId.'" title="false" description="false" ajax="true"]';
-        }
-        $formClass = (($gravityFormTitle || $gravityFormTopText) && $shortcode && do_shortcode($shortcode)) ? 'half':'full';
-        if($gravityFormTitle || $gravityFormTopText || $shortcode || do_shortcode($shortcode) ) { ?>
-          <div id="bottom-contact-form" class="imageTextBlock reverse fw wow fadeIn <?php echo $class.$form_image_pos ?>">
-            <div class="wrapper">
-              <div class="flexwrap">
-                <?php if ($formImage) { ?>
-                <div class="fcol image wow fadeIn">
-                  <div class="img parallax-image-block" style="background-image:url('<?php echo $formImage['url'] ?>')"></div>
-                  <img src="<?php echo get_images_dir('rectangle.png') ?>" alt="" class="helper">
-                </div>
-                <?php } ?>
-
-                <?php if ( $gravityFormTitle || $gravityFormTopText) { ?>
-                <div class="fcol text">
-                  <div id="contactform" class="inner wow fadeInUp">
-                    <?php if ($gravityFormTitle) { ?>
-                     <h3 class="title h1"><?php echo $gravityFormTitle ?></h3> 
-                    <?php } ?>
-
-                    <?php if ($gravityFormTopText) { ?>
-                    <div class="top-form-text">
-                      <?php echo anti_email_spam($gravityFormTopText) ?>
-                    </div>
-                    <?php } ?>
-
-                    <?php if ( $shortcode && do_shortcode($shortcode) ) { ?>
-                    <div class="form-wrap">
-                      <?php echo do_shortcode($shortcode); ?>
-                    </div>
-                    <?php } ?>
-
-                    <?php if ($gravityFormBottomText) { ?>
-                    <div class="bottom-form-text">
-                      <small class="smtxt"><?php echo anti_email_spam($gravityFormBottomText) ?></small>
-                    </div>
-                    <?php } ?>
-                  </div>
-                </div>
-                <?php } ?>
-              </div>
-            </div>
-          </div>
-        <?php } ?>
-      <?php } ?>
-      <?php if ($form_disable=='yes') { ?>
-      <div class="bottom-padtop">
-        <?php get_template_part('parts/bottom-logos'); ?>
-      </div>
-      <?php } else { ?>
-        <?php get_template_part('parts/bottom-logos'); ?>
-      <?php } ?>
+    <?php include( locate_template('parts/contact-form-post-type.php') ); ?>
+    
 		
 	</main>
 </div>

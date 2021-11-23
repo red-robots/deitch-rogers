@@ -382,6 +382,7 @@ $counter = 1;
           $df_pos = ($image_position) ? ' image-'.$image_position:'';
           $df_class = ($df_form && ($image ||$text) ) ? 'half' : 'full';
           if($df_form || ($image ||$text) ) { ?>
+          <div id="contact-form"></div>
           <div class="detailedForm fw <?php echo $df_class.$df_pos ?>">
             <div class="flexwrap">
               <?php if ($image || $text) { ?>

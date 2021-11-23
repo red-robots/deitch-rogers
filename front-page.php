@@ -547,13 +547,16 @@ if ( $team->have_posts() ) {
     <?php } ?>
   <?php } ?>
 
+  <?php  
+  $global_Opt = get_field("global_form_opt");
+  $row10_has_content = ( isset($global_Opt) && $global_Opt=='none' ) ? false : true;
+  $show_logo = false;
+  if($row10_has_content) { ?>
+  <!-- GLOBAL FORM SECTION -->
   <div id="homerow10">
-    <?php 
-      $show_logo = false;
-      include( locate_template('parts/home-contact-form.php') ); 
-      //get_template_part('parts/home-contact-form');
-    ?>
+    <?php include( locate_template('parts/global-form-options.php') ); ?>
   </div>
+  <?php } ?>
 
   <?php  
   $row11_image = get_field("row11_image");

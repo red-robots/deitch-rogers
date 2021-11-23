@@ -11,10 +11,9 @@ div,h1,h2,h3,h4,h5,h6,p,li,a,span,strong {
     hyphens: none;
     page-break-inside: avoid;
 }
-* {
-	box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-webkit-box-sizing: border-box;
+*, *::before, *::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
 }
 pre {
 	font-family: $font_pre;
@@ -252,6 +251,9 @@ input.gform_button, input[type="submit"] {
     margin: 0 10px 20px;
     width: 80%;
     text-align: center;
+    @include xs {
+      width: 45%;
+    }
     @include tab {
       width: auto;
       margin-left: 0;
@@ -677,7 +679,13 @@ body.logged-in.admin-bar {
         max-width: 575px;
         height: 100%;
         float: right;
-        padding-right: 8vw;
+        padding-right: 4vw;
+      }
+      @include xxl {
+        padding-right: 5vw;
+      }
+      @include min(1500px) {
+        padding-right: 80px;
       }
       .inside {
         width: 100%;
@@ -692,10 +700,22 @@ body.logged-in.admin-bar {
 
     .large-text {
       color: $primary;
-      font-family: $font_secondary;
-      font-size: 48px;
-      line-height: 1.2;
       margin-bottom: 40px;
+      font-family: $font_secondary;
+      font-size: 40px;
+      line-height: 1.2;
+      @include tab {
+        font-size: 3.8vw;
+      }
+      @include desk {
+        font-size: 4vw;
+      }
+      @include xxl {
+        font-size: 3.6vw;
+      }
+      @include min(1500px) {
+        font-size: 57px;
+      }
     }
     .small-text {
       font-size: 24px;
@@ -717,6 +737,9 @@ body.logged-in.admin-bar {
         margin: 0 10px 20px;
         width: 80%;
         text-align: center;
+        @include xs {
+          width: 45%;
+        }
         @include tab {
           width: auto;
           margin-left: 0;
@@ -1594,14 +1617,23 @@ blockquote  {
 body.page-template-page-child-expertise .bottom-padtop {margin-top:0;}
 body.page-template-page-child-expertise .bottom-padtop #bottom-logos{margin-top:0;padding-top:0!important;}
 .page-title {
-  font-family: $font_secondary;
-  font-size: 30px;
-  font-weight: 400;
-  line-height: 1.2;
   margin: 50px 0 20px;
   color: $primary;
+  font-family: $font_secondary;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 1.2;
   @include tab {
-    font-size: 40px;
+    font-size: 3.8vw;
+  }
+  @include desk {
+    font-size: 4vw;
+  }
+  @include xxl {
+    font-size: 3.6vw;
+  }
+  @include min(1500px) {
+    font-size: 57px;
   }
 }
 
@@ -1624,6 +1656,9 @@ body.page-template-page-child-expertise .bottom-padtop #bottom-logos{margin-top:
           margin-bottom: 0;
           padding-right: 5vw;
           @include flexgroup-center();
+        }
+        @include xxl {
+          padding-right: 3vw;
         }
         .inner {
           width: 100%;
@@ -1845,6 +1880,9 @@ body.page-template-page-child-expertise .bottom-padtop #bottom-logos{margin-top:
     @include tab {
       padding-right: 8vw;
     }
+    @include xxl {
+      padding-right: 5vw;
+    }
   }
 }
 
@@ -1933,6 +1971,16 @@ body.page-template-page-child-expertise .bottom-padtop #bottom-logos{margin-top:
         }
       }
     }
+  }
+  .fcol-content-middle {
+    @include flexgroup();
+    @include flexbox-align-items(center);
+    .formblock {
+      width: 100%;
+    }
+  }
+  &.imageTextBlock .fcol.image {
+    height: 50vw;
   }
 }
 
@@ -2078,9 +2126,22 @@ svg.animate-logo {
           line-height: 1.2;
         }
         .title {
-          font-size: 48px;
           margin-top: 0;
           margin-bottom: 40px;
+          font-size: 40px;
+          line-height: 1.2;
+          @include tab {
+            font-size: 3.8vw;
+          }
+          @include desk {
+            font-size: 4vw;
+          }
+          @include xxl {
+            font-size: 3.6vw;
+          }
+          @include min(1500px) {
+            font-size: 57px;
+          }
         }
         h2 {
           font-size: 30px;
@@ -2129,6 +2190,9 @@ svg.animate-logo {
         @include tab {
           @include flexgroup-center();
           padding-right: 5vw;
+        }
+        @include min(1500px) {
+          padding-right: 80px;
         }
       }
     }
@@ -2538,7 +2602,10 @@ body.page-template-page-flexible-content {
 body.home #bottom-contact-form {
   margin-bottom: 0;
 }
-
+#contact-form {
+  width: 100%;
+  float: left;
+}
 .detailedForm {
   .fcol {
     width: 100%;
@@ -2836,6 +2903,7 @@ body.home #bottom-contact-form {
     }
   }
 }
+
 
 /* Footer */
 .site-footer {

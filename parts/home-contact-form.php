@@ -18,6 +18,7 @@ $bottom_logos = ( isset($form['bottom_logo']) && $form['bottom_logo'] ) ? $form[
 
 $class = ( $form_image && ( $form_title || $form_text) ) ? 'half':'full';
 if ( $form_image || ($form_title || $form_text) || $bottom_logos ) { ?>
+<div id="contact-form"></div>
 <div id="bottom-contact-form" class="imageTextBlock reverse fw wow fadeIn <?php echo $class ?>">
   <div class="wrapper">
     <div class="flexwrap">
