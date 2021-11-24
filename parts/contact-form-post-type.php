@@ -49,25 +49,27 @@ if($show_form) {
                 </div>
                 <?php } ?>
 
-                <?php if ( $global_form_content=='cta' && $global_buttons ) { ?>
-                <div class="form-wrap">
-                  <div class="button-group  wow fadeInDown">
-                    <?php foreach ($global_buttons as $b) { 
-                      $btn = $b['button'];
-                      $btnTitle = (isset($btn['title']) && ($btn['title'])) ? ($btn['title']) : '';
-                      $btnLink = (isset($btn['url']) && ($btn['url'])) ? ($btn['url']) : '';
-                      $btnTarget = (isset($btn['target']) && ($btn['target'])) ? ($btn['target']) : '_self';
-                      $style = $b['button_style'];
-                      $btnClass = ($style=='outline') ? 'btn-outline':'btn-green';
-                      if( $btnTitle && $btnLink ) { ?>
-                        <a href="<?php echo $btnLink ?>" target="<?php echo $btnTarget ?>" class="btn <?php echo $btnClass ?>"><?php echo $btnTitle ?></a>
+                <?php if ( $global_form_option=='cta') { ?>
+                  <?php if ($global_buttons) { ?>
+                  <div class="form-wrap">
+                    <div class="button-group  wow fadeInDown">
+                      <?php foreach ($global_buttons as $b) { 
+                        $btn = $b['button'];
+                        $btnTitle = (isset($btn['title']) && ($btn['title'])) ? ($btn['title']) : '';
+                        $btnLink = (isset($btn['url']) && ($btn['url'])) ? ($btn['url']) : '';
+                        $btnTarget = (isset($btn['target']) && ($btn['target'])) ? ($btn['target']) : '_self';
+                        $style = $b['button_style'];
+                        $btnClass = ($style=='outline') ? 'btn-outline':'btn-green';
+                        if( $btnTitle && $btnLink ) { ?>
+                          <a href="<?php echo $btnLink ?>" target="<?php echo $btnTarget ?>" class="btn <?php echo $btnClass ?>"><?php echo $btnTitle ?></a>
+                        <?php } ?>
                       <?php } ?>
-                    <?php } ?>
+                    </div>
                   </div>
-                </div>
+                  <?php } ?>
                 <?php } else { ?>
 
-                  <?php if($global_form_content=='form' && do_shortcode($shortcode) ) { ?>
+                  <?php if($global_form_option=='form' && do_shortcode($shortcode) ) { ?>
                   <div class="form-wrap">
                     <?php echo do_shortcode($shortcode); ?>
                   </div>

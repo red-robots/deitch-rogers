@@ -17,21 +17,21 @@ function js_custom_init() {
         'supports'  => array('title','editor')
       ),
       array(
-        'post_type' => 'insights',
-        'menu_name' => 'Insights',
-        'plural'    => 'Insights',
-        'single'    => 'Insight',
-        'menu_icon' => 'dashicons-info',
-        'supports'  => array('title','editor')
-      ),
-      array(
         'post_type' => 'wins',
         'menu_name' => 'Wins',
         'plural'    => 'Wins',
         'single'    => 'Win',
         'menu_icon' => 'dashicons-awards',
         'supports'  => array('title','editor')
-      )
+      ),
+      // array(
+      //   'post_type' => 'insights',
+      //   'menu_name' => 'Insights',
+      //   'plural'    => 'Insights',
+      //   'single'    => 'Insight',
+      //   'menu_icon' => 'dashicons-info',
+      //   'supports'  => array('title','editor')
+      // ),
     );
     
     if($post_types) {

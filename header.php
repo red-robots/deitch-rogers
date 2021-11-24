@@ -62,7 +62,7 @@ $btnLink = ( isset($hb['url']) && $hb['url'] ) ? $hb['url'] : '';
             <?php wp_nav_menu( array( 'theme_location' => 'primary', 'container'=>false, 'menu_id' => 'primary-menu','link_before'=>'<span>','link_after'=>'</span>',) ); ?>
           </nav>
           <?php if ($btnName && $btnLink) { ?>
-          <a href="<?php echo $btnLink ?>" target="<?php echo $btnTarget ?>" class="top-cta-btn btn-contact wow fadeInDown"><span><?php echo $btnName ?></span></a>
+          <a href="<?php echo $btnLink ?>" target="<?php echo $btnTarget ?>" class="top-cta-btn btn-contact animated fadeInDown"><span><?php echo $btnName ?></span></a>
           <?php } ?>
         </div>
         <div class="menu-overlay"></div>

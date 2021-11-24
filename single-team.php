@@ -15,40 +15,12 @@ get_header(); ?>
 		<?php while ( have_posts() ) : the_post(); ?>
 
       <?php  
-        $mainpic = get_field("photo_large");
-        $toptext = get_field("toptext");
-        $top_buttons = get_field("top_buttons");
-        $buttons = array();
-        $top_class = ($mainpic && $toptext) ? 'half':'full';
-        // if($top_buttons) {
-        //   for($i=1;$i<=2;$i++) {
-        //     if ( isset($top_buttons['button'.$i]) && $top_buttons['button'.$i] ) {
-        //       $btn = $top_buttons['button'.$i];
-        //       $btnTarget = ( isset($btn['target']) && $btn['target'] ) ? $btn['target'] : '_self';
-        //       $btnName = ( isset($btn['title']) && $btn['title'] ) ? $btn['title'] : '';
-        //       $btnLink = ( isset($btn['url']) && $btn['url'] ) ? $btn['url'] : '';
-        //       if($btnName && $btnLink) {
-        //         // if (strpos($btnLink, '#') === 0) {
-        //         //   $btnLink = get_permalink() . $btnLink;
-        //         // }
-        //         $buttons[] = array(
-        //                       'title'=>$btnName,
-        //                       'url'=>$btnLink,
-        //                       'target'=>$btnTarget
-        //                     );
-        //       }
-        //     }
-        //   }
-        //   // echo "<pre>";
-        //   // print_r($buttons);
-        //   // echo "</pre>";
-        // }
-
-        // echo "<pre>";
-        // print_r($top_buttons);
-        // echo "</pre>";
+      $mainpic = get_field("photo_large");
+      $toptext = get_field("toptext");
+      $top_buttons = get_field("top_buttons");
+      $buttons = array();
+      $top_class = ($mainpic && $toptext) ? 'half':'full';
       ?>
-
       <div class="top <?php echo $top_class ?>">
         <div class="flexwrap">
           <div class="fcol left animated fadeInLeft">
@@ -101,8 +73,10 @@ get_header(); ?>
 
     <?php 
       $show_logo = true;
-      include( locate_template('parts/home-contact-form.php') ); 
+      $global_Opt = get_field("global_form_opt",54);
+      include( locate_template('parts/global-form-options.php') ); 
     ?>
+
 	</main><!-- #main -->
 </div><!-- #primary -->
 
