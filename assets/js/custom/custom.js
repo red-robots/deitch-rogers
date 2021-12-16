@@ -127,8 +127,9 @@ jQuery(document).ready(function ($) {
         $(this).addClass('parentMenu');
       });
       $(document).on("click","a.parentMenu",function(e){
-        e.preventDefault();
-        $(this).next().stop().slideToggle(100);
+        // e.preventDefault();
+        e.stopImmediatePropagation()
+        $(this).next().slideToggle(100);
         //$(this).next().toggleClass('open');
       });
     }
