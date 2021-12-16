@@ -128,7 +128,7 @@ jQuery(document).ready(function ($) {
       });
       $(document).on("click","a.parentMenu",function(e){
         e.preventDefault();
-        $(this).next().slideToggle(100);
+        $(this).next().stop().slideToggle(100);
         //$(this).next().toggleClass('open');
       });
     }

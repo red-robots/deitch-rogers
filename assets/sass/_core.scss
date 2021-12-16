@@ -780,6 +780,12 @@ body.logged-in.admin-bar {
         width:33.33%;
       }
     }
+    .block.fith {
+      width:100%;
+      @include tab {
+        width:33.33%;
+      }
+    }
     .card {
       position: relative;
       display: block;

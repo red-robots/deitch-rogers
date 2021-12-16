@@ -49,10 +49,14 @@ $hero_class = ( ($large_text || $small_text) && $grid_images ) ? 'half':'full';
         </div>
         <?php } ?>
 
-        <?php if ( $grid_images ) { ?>
+        <?php if ( $grid_images ) { $g=0; ?>
         <div class="hero-col right wow fadeIn">
           <div class="masonry">
             <?php foreach ($grid_images as $img) { 
+              $g++;
+              if($g===5) {
+                $gC='fith';
+              } else {$gC='';}
               $front_img = $img['front_image'];
               $back_img = $img['back_image'];
               $back_text = $img['back_text'];
@@ -68,7 +72,7 @@ $hero_class = ( ($large_text || $small_text) && $grid_images ) ? 'half':'full';
               }
               $has_logo = ( isset($img['has_logo']) && $img['has_logo']=='yes' ) ? true : false;
               if($front_img) { ?>
-              <div class="block sudden">
+              <div class="block sudden <?php echo $gC.' '.$g; ?>">
                 <?php echo $open_link ?>
                   <span class="front img" style="background-image:url('<?php echo $front_img['url'] ?>')">
                     <?php if ($has_logo) { ?>
