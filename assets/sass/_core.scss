@@ -771,9 +771,23 @@ body.logged-in.admin-bar {
       padding: 0 0;
     }
   }
-  
+  .mobile-tile {
+    width: 100%;
+    img {
+      width: 100%;
+    }
+    @include tab {
+      display: none;
+    }
+  }
   .masonry {
     @include flexgroup();
+    &.desktop {
+      display: none;
+      @include tab {
+        display: flex;
+      }
+    }
     .block {
       width:50%;
       @include tab {

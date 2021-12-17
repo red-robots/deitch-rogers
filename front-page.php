@@ -7,6 +7,7 @@ $large_text = get_field("left_large_text");
 $small_text = get_field("left_small_text");
 $grid_images = get_field("grid_images");
 $left_buttons = get_field("left_buttons");
+$mobileTile = get_field("mobile_tile");
 $hero_class = ( ($large_text || $small_text) && $grid_images ) ? 'half':'full';
 ?>
 <?php while ( have_posts() ) : the_post(); ?>
@@ -51,7 +52,7 @@ $hero_class = ( ($large_text || $small_text) && $grid_images ) ? 'half':'full';
 
         <?php if ( $grid_images ) { $g=0; ?>
         <div class="hero-col right wow fadeIn">
-          <div class="masonry">
+          <div class="masonry desktop">
             <?php foreach ($grid_images as $img) { 
               $g++;
               if($g===5) {
@@ -94,6 +95,11 @@ $hero_class = ( ($large_text || $small_text) && $grid_images ) ? 'half':'full';
               <?php } ?>  
             <?php } ?>
           </div>
+          <?php if( $mobileTile ) { ?>
+            <div class="mobile-tile">
+              <img src="<?php echo $mobileTile['url']; ?>" alt="<?php echo $mobileTile['alt']; ?>">
+            </div>
+          <?php } ?>
         </div>
         <?php } ?>
 
