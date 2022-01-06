@@ -1416,7 +1416,7 @@ input.gform_button:hover,input[type="submit"]:hover{border-color:#18485b;backgro
 #homerow2.section-with-icons div.item a:hover .t1{color:#056ab5}
 #homerow3.section-with-icons{margin:80px 0}
 #homerow3.section-with-icons .flexwrap{margin-left:-30px;margin-right:-30px}
-#homerow3.section-with-icons .col-icons{width:100%;margin-bottom:40px}
+#homerow3.section-with-icons .col-icons{width:100%;margin-bottom:40px;text-align:center}
 #homerow3.section-with-icons .col-icons .inner{padding:0 30px}
 #homerow3.section-with-icons .title{font-family:"Playfair Display",serif;font-size:25px;font-weight:400;line-height:1.2;margin:0 0 10px;text-transform:none;color:#18485b}
 #homerow3.section-with-icons .btn-link{display:inline-block;text-decoration:none;color:#056ab5;position:relative}
@@ -1682,7 +1682,7 @@ body.logged-in.admin-bar .site-header.fixed{top:32px}
 .section-with-icons .title{text-align:left}
 .section-with-icons.columns-2 .col-icons{width:50%}
 #homerow2.section-with-icons .content{text-align:left}
-#homerow3.section-with-icons .col-icons{width:50%;margin-bottom:60px}
+#homerow3.section-with-icons .col-icons{text-align:left;width:50%;margin-bottom:60px}
 .image-text-block .itb-col.image{margin-bottom:0}
 .image-text-block .itb-col.text .inner{max-width:580px;padding:30px 5vw 30px 5vw}
 .image-text-block.half .itb-col{width:50%}

@@ -1157,7 +1157,9 @@ body.logged-in.admin-bar {
   .col-icons {
     width: 100%;
     margin-bottom: 40px;
+    text-align: center;
     @include tab {
+      text-align: left;
       width: 50%;
       margin-bottom: 60px;
     }
