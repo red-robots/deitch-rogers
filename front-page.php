@@ -235,6 +235,39 @@ $hero_class = ( ($large_text || $small_text) && $grid_images ) ? 'half':'full';
   </div>
   <?php } ?>
 
+   <?php  
+  $video = get_field("row8_video_link");
+  $videoId = '';
+  $vimeo_video_id = '';
+  if($video) {   
+    if (strpos($video, '/youtu.be/') !== false) {
+      $parts = explode("/",$video);
+      $videoId = end($parts);
+    }
+    else if (strpos($video, 'youtube.com') !== false) {
+      $parts = parse_url($video);
+      parse_str($parts['query'], $query);
+      $videoId = (isset($query['v']) && $query['v']) ? $query['v'] : '';
+    }
+    else if (strpos($video, 'vimeo.com') !== false) {
+      $vimeo_video_id = basename($video);
+    }
+  ?>
+  <div id="homerow8" class="home-video-section fw" style="position:relative;top:-2vw">
+    <div class="wrapper">
+      <div class="videoEmbedWrap">
+        <?php if($videoId) { ?>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/<?php echo $videoId?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <?php } else if($vimeo_video_id) { ?>
+          <iframe id="vimeoVideoFrame" src="https://player.vimeo.com/video/<?php echo $vimeo_video_id?>?title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+          <script src="https://player.vimeo.com/api/player.js"></script>
+        <?php } ?>
+        <img src="<?php echo get_images_dir('rectangle.png'); ?>" alt="" class="video-helper">
+      </div>
+    </div>
+  </div>
+  <?php } ?>
+
 
   <?php  
   $row4_image = get_field("row4_image");
@@ -398,40 +431,6 @@ $hero_class = ( ($large_text || $small_text) && $grid_images ) ? 'half':'full';
           </div>
         </div> 
       <?php } ?>
-    </div>
-  </div>
-  <?php } ?>
-
-
-  <?php  
-  $video = get_field("row8_video_link");
-  $videoId = '';
-  $vimeo_video_id = '';
-  if($video) {   
-    if (strpos($video, '/youtu.be/') !== false) {
-      $parts = explode("/",$video);
-      $videoId = end($parts);
-    }
-    else if (strpos($video, 'youtube.com') !== false) {
-      $parts = parse_url($video);
-      parse_str($parts['query'], $query);
-      $videoId = (isset($query['v']) && $query['v']) ? $query['v'] : '';
-    }
-    else if (strpos($video, 'vimeo.com') !== false) {
-      $vimeo_video_id = basename($video);
-    }
-  ?>
-  <div id="homerow8" class="home-video-section fw">
-    <div class="wrapper">
-      <div class="videoEmbedWrap">
-        <?php if($videoId) { ?>
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/<?php echo $videoId?>" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        <?php } else if($vimeo_video_id) { ?>
-          <iframe id="vimeoVideoFrame" src="https://player.vimeo.com/video/<?php echo $vimeo_video_id?>?title=0&byline=0&portrait=0" style="position:absolute;top:0;left:0;width:100%;height:100%;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-          <script src="https://player.vimeo.com/api/player.js"></script>
-        <?php } ?>
-        <img src="<?php echo get_images_dir('rectangle.png'); ?>" alt="" class="video-helper">
-      </div>
     </div>
   </div>
   <?php } ?>
