@@ -48,6 +48,7 @@
 		"cache-clear": "gulp clearCache"
 	},
 	"dependencies": {
-		"node-sass": "^7.0.1"
+		"node-sass": "^7.0.1",
+		"sass-migrator": "^1.5.4"
 	}
 }

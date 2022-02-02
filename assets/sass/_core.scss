@@ -350,8 +350,11 @@ body.logged-in.admin-bar {
   top: 8px;
   overflow: hidden;
   @include tab {
-    width: 220px;
+    width: 205px;
     top: -9px;
+  }
+  @include mid {
+    width: 220px;
   }
   a,svg {
     display: block;
@@ -403,6 +406,9 @@ body.logged-in.admin-bar {
     color: $color_text_main;
     padding: 13px 25px 15px 25px;
     position: relative;
+    @media screen and (max-width:912px) {
+      padding: 13px 10px 10px 25px;
+    }
   }
   #primary-menu > li:hover > a {
     background: $green;
@@ -736,30 +742,34 @@ body.logged-in.admin-bar {
     }
     div.buttons {
       margin-top: 50px;
-      text-align: center;
+      text-align: left;
       @include tab {
         margin-top: 60px;
-        text-align: left;
+        // text-align: left;
       }
       .btn {
         margin: 0 10px 20px;
-        width: 80%;
+        // width: 70%;
+        min-width: 160px;
         text-align: center;
         @include xs {
           width: 45%;
         }
         @include tab {
-          min-width: 200px;
+          min-width: 180px;
           width: auto;
           margin-left: 0;
           margin-right: 1.2vw;
-          margin-bottom: 0;
+          margin-bottom: 20px;
         }
         @include xxl {
           margin-right: 30px;
         }
         &:last-child {
           margin-right: 0;
+        }
+        @media screen and (max-width: 390px) {
+          margin-left: 0;
         }
       }
     }
